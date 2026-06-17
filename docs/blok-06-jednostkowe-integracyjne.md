@@ -64,6 +64,17 @@ Podczas asercji możemy badać trzy rzeczy:
 - Poprawiasz jakość i czytelność kodu (lub samego testu)
 - Wiesz, że działający test chroni Cię przed zepsuciem logiki
 
+!!! quote "Jak to powiedzieć egzaminatorowi"
+    **O AAA:** "W fazie Arrange ustawiam stan początkowy — inicjalizuję klasę i przygotowuję dane wejściowe. W fazie Act wywołuję testowaną metodę. W fazie Assert sprawdzam, czy rezultat jest zgodny z oczekiwaniami."
+
+    **O trzech przypadkach:** "Pokazuję trzy: poprawny, czyli happy path z typowymi danymi; graniczny, czyli punkt styku — równe 18 lat; oraz obsługę błędu — nieprawidłowe dane, oczekiwany rzut wyjątkiem."
+
+    **O parametryzacji:** "Zamiast pisać trzy osobne testy, tworzę jeden test sparametryzowany. Pozwala to na wstrzyknięcie różnych zestawów danych do tej samej struktury AAA."
+
+    **O tym, co weryfikujemy:** "Podczas asercji mogę badać trzy rzeczy. Wynik — sprawdzam wartość zwróconą bezpośrednio przez metodę, np. kalkulację matematyczną. Stan — sprawdzam, czy zmieniła się właściwość obiektu po wykonaniu akcji. Komunikację — sprawdzam, czy testowany moduł wywołał metodę z zewnętrznej zależności, używając do tego mocków."
+
+    **O TDD:** "Najpierw piszę test — np. ujemny wiek rzuca wyjątek. Test nie przechodzi, bo nie mam jeszcze implementacji — to faza Red. Następnie dopisuję najprostszą możliwą linię kodu, żeby test zaświecił się na zielono — faza Green. Na koniec poprawiam jakość i czytelność kodu lub samego testu — Refactor — wiedząc, że działający test chroni mnie przed zepsuciem logiki."
+
 ---
 
 ## Scenariusz 6.2 — izolacja, dublery testowe i jakość testów
@@ -112,3 +123,16 @@ Podczas asercji możemy badać trzy rzeczy:
 - Testy dające **losowe wyniki** (raz przechodzą, raz nie) pomimo braku zmian w kodzie
 - Przyczyna: testowanie na żywym, niestabilnym API dostawcy
 - Skutek: **całkowita utrata zaufania** — zespół zaczyna ignorować błędy, zakładając "ten test tak ma"
+
+!!! quote "Jak to powiedzieć egzaminatorowi"
+    **O stylu klasycznym (Detroit):** "Izoluję testy od siebie, a nie poszczególne klasy. Pozwalam na korzystanie z rzeczywistych zależności — innych klas — o ile nie są wolne, jak baza danych. Stosuję głównie Stub, który zwraca sztywne, przygotowane dane, lub Fake, czyli uproszczoną w pełni działającą implementację."
+
+    **O stylu londyńskim (Mockist):** "Izoluję testowaną jednostkę od absolutnie wszystkich jej zależności. Do każdej zależności tworzę Mock, za pomocą którego weryfikuję komunikację — np. sprawdzam, czy klasa A poprawnie wywołała metodę z klasy B."
+
+    **O bazie i brokerze:** "W testach jednostkowych nigdy nie łączymy się z rzeczywistą bazą czy brokerem. Zewnętrzne zależności są wolne i niestabilne, co sprawia, że testy stają się wolne i często fałszywie wykazują błędy z powodu np. chwilowej niedostępności usługi. W testach jednostkowych bazę zastępuję za pomocą Fake, np. lekkiej bazy in-memory. Testowanie rzeczywistej komunikacji zostawiam wyłącznie dla wyższej warstwy — testów integracyjnych."
+
+    **O pokryciu vs jakości:** "Osiągnięcie 100% pokrycia instrukcji nie daje gwarancji, że kod działa poprawnie. Test może przejść przez wszystkie linijki i nie wykryć problemu, który w rzeczywistości wybuchnie na produkcji — np. wstrzyknięcie zera skutkujące dzieleniem przez zero. Testy pisane tylko pod statystyki pokrycia bywają puste w środku — brak mocnych asercji."
+
+    **O testowaniu mutacyjnym:** "To technika mierząca jakość testów. Narzędzie celowo modyfikuje kod źródłowy — tworzy mutanty, np. zmienia operator plus na minus. Dobry test powinien zabić mutanta, czyli zaświecić się na czerwono. Jeśli test nadal przechodzi dla zepsutego kodu, oznacza to, że jego asercje są bezwartościowe."
+
+    **O flakiness:** "Są to testy, które dają losowe wyniki — raz przechodzą, raz nie — pomimo braku zmian w kodzie. Skutkuje to całkowitą utratą zaufania — zespół zaczyna ignorować błędy, zakładając, że ten test tak ma."

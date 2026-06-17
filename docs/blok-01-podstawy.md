@@ -57,6 +57,17 @@ Większość błędów pochodzi z jednego modułu, podczas gdy inne działają b
 
     Zawsze podawaj własne uzasadnienie decyzji.
 
+!!! quote "Jak to powiedzieć egzaminatorowi"
+    **O kontekstowości:** "Zgodnie z zasadą, że testowanie jest zależne od kontekstu, do każdego projektu należy podejść zupełnie inaczej."
+
+    **O MVP:** "Głównym celem startupu w fazie MVP jest szybkie dostarczenie wartości na rynek, budowanie zaufania pierwszych użytkowników oraz zwalidowanie, czy produkt w ogóle odpowiada na rzeczywiste potrzeby. Stawia się tu na szybkość kosztem pełnego pokrycia testami — testowanie gruntowne wręcz blokowałoby rozwój biznesu. Weryfikuje się głównie happy paths, dopuszcza się testy A/B na produkcji albo wdrożenie nowej funkcji feature flagiem dla 5% ruchu."
+
+    **O systemie medycznym:** "W systemach medycznych priorytetem jest bezpieczeństwo pacjentów i niezawodność, a nadrzędnym celem testowania staje się zgodność z rygorystycznymi regulacjami prawnymi. Bardzo duży nacisk kładzie się na wczesne testowanie statyczne — weryfikację specyfikacji i analizę architektury, jeszcze zanim powstanie kod. Wymagana jest ścisła identyfikowalność przez macierze śledzenia, aby udowodnić audytorom, że każde wymaganie prawne zostało pokryte testami."
+
+    **O paradoksie pestycydów:** "Kod, oprogramowanie, a także sami deweloperzy z czasem uodparniają się na te same, wielokrotnie powtarzane testy. Jeśli zestaw testów nie ewoluuje, przestanie w końcu wykrywać nowe defekty wprowadzane przy okazji rozwoju systemu. Dobrym krokiem będzie przeprowadzenie sesji testowania eksploracyjnego w wykonaniu doświadczonego testera."
+
+    **O klastrowaniu:** "Defekty nie rozkładają się równomiernie. Najczęściej skupiają się w niewielkiej liczbie miejsc, np. tam, gdzie występuje bardzo złożona logika biznesowa, nagromadzenie długu technologicznego lub tam, gdzie nanoszono najwięcej poprawek. Zamiast w nieskończoność doklejać nowe testy, tester może zarekomendować zespołowi programistycznemu dogłębną analizę metodą 5 × Dlaczego oraz refaktoryzację problematycznego kodu."
+
 ---
 
 ## Scenariusz 1.2 — proces testowy, identyfikowalność i niezależność
@@ -93,6 +104,19 @@ Większość błędów pochodzi z jednego modułu, podczas gdy inne działają b
 | **Dedykowany zespół QA** | obiektywność, specjalizacja | silosy organizacyjne, "rzucanie zadaniami przez płot" | dojrzałe organizacje |
 | **Zewnętrzne laboratorium** | najwyższy obiektywizm | wysoki koszt, długi czas | systemy regulowane (medyczne, bankowe, wojskowe), certyfikacja |
 
+!!! quote "Jak to powiedzieć egzaminatorowi"
+    **O warunkach vs przypadkach:** "Z wymagań wyodrębniam ogólne warunki testowe — określam *co* należy przetestować. Potem przekształcam warunki w szczegółowe przypadki testowe — określam *jak* będę testować, czyli definiuję kroki, dane wejściowe i oczekiwany rezultat."
+
+    **O identyfikowalności:** "Identyfikowalność służy do udowodnienia biznesowi stopnia pokrycia wymagań, pozwala na szybką analizę wpływu przy zmianach w kodzie oraz ułatwia ocenę ryzyka i raportowanie."
+
+    **O autorze kodu jako testerze:** "Daje dobrą znajomość kodu i szybkość, ale niesie ogromne ryzyko błędów poznawczych — confirmation bias. Programista nieświadomie testuje tak, żeby potwierdzić, że jego kod działa."
+
+    **O testerze w zespole:** "To standard w zwinnym wytwarzaniu oprogramowania. Daje dobrą wiedzę domenową i szybką komunikację, ale jest ryzyko ulegania wpływom deweloperów z tego samego zespołu."
+
+    **O dedykowanym QA:** "Wysoka obiektywność i specjalizacja, ale tworzy silosy organizacyjne, co wydłuża komunikację i powoduje rzucanie zadaniami przez płot."
+
+    **O zewnętrznym laboratorium:** "Wybieram, gdy mamy system silnie regulowany prawnie — np. medyczny, bankowy, wojskowy. Najwyższy obiektywizm, ale bardzo wysoki koszt i długi czas."
+
 ---
 
 ## Scenariusz 1.3 — łańcuch pomyłka → defekt i raport defektu
@@ -127,3 +151,10 @@ Większość błędów pochodzi z jednego modułu, podczas gdy inne działają b
 - kultura zgłaszania błędów musi być **blameless** (bez obwiniania)
 
 **Wartość dodana:** uzupełnij raport o dodatkowe logi, zrzuty ekranu, propozycję **workaroundu**.
+
+!!! quote "Jak to powiedzieć egzaminatorowi"
+    **O łańcuchu przyczynowym:** "Awaria to skutek, czyli to, co bezpośrednio widzi użytkownik lub tester w działającym systemie — np. aplikacja się zawiesza albo podaje błędny wynik. Defekt to wada — to, co fizycznie jest zepsute w kodzie, konfiguracji lub architekturze, np. brak obsługi pustego pola, literówka w zapytaniu do bazy. Pomyłka to czynnik ludzki — przyczyna wprowadzenia wady przez człowieka: presja czasu, zmęczenie, zła komunikacja, błędne zrozumienie wymagań."
+
+    **O 5 × Dlaczego:** "To prosta metoda polegająca na kilkukrotnym, zazwyczaj pięciokrotnym zadaniu pytania *dlaczego?*, aby dotrzeć do najgłębszego źródła problemu. Jej celem jest zidentyfikowanie prawdziwej luki w procesie — np. braku odpowiednich procedur szkoleniowych — a nie tylko zatrzymanie się na powierzchownym błędzie ludzkim. Celem analizy jest znalezienie luki w procesie, a nie szukanie winnego człowieka."
+
+    **O konstruktywności raportu:** "Tester to posłaniec złych wieści i musi zachować obiektywizm, skupiając się wyłącznie na faktach. Kultura zgłaszania błędów musi być blameless — bez obwiniania. Krytykuję raport, jeśli zawiera ataki personalne lub emocjonalny ton."

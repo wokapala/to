@@ -2,6 +2,7 @@
 
 Notatki do egzaminu ustnego.
 
+**Autor:** Jakub Kapała (151885)
 **Kierunek:** Informatyka, niestacjonarne, semestr V
 
 ## Struktura
@@ -22,3 +23,5 @@ Notatki do egzaminu ustnego.
 
 Naciśnij `/` (slash) lub kliknij ikonkę lupy w prawym górnym rogu — przeszukuje wszystkie notatki naraz.
 
+!!! tip "Pamiętaj na egzaminie"
+    Prowadzący nie chce regułek z pamięci. Odpowiadaj w stylu **"w tym kontekście wybieram X, bo Y"** i podawaj własne uzasadnienie decyzji.

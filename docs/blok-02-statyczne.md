@@ -34,6 +34,17 @@ Analizie statycznej można poddać **wszystko, co ma sformalizowaną strukturę 
 !!! note
     Dokumenty niesformalizowane lub trudne do zinterpretowania według jasnych reguł słabo nadają się do analizy statycznej.
 
+!!! quote "Jak to powiedzieć egzaminatorowi"
+    **O przeglądzie nieformalnym/przejrzeniu:** "Wybieram dla niskiej krytyczności — daje szybki feedback, generowanie pomysłów i sprawdzanie alternatyw. Przejrzenie jest prowadzone przez samego autora i nie wymaga ścisłej formalizacji."
+
+    **O przeglądzie technicznym:** "Celem jest osiągnięcie konsensusu technicznego i wykrycie defektów przez ekspertów o odpowiednich kwalifikacjach. Często tworzy się z niego raport."
+
+    **O inspekcji:** "To najbardziej formalny proces, oparty o twarde zasady i listy kontrolne. Wymagany dla systemów, gdzie błąd kosztuje najwięcej — finansowych, medycznych, architektury bezpieczeństwa."
+
+    **O rolach w inspekcji:** "W formalnej inspekcji autor nie może pełnić roli lidera ani protokolanta, aby zachować obiektywizm. Moderator najlepiej, gdy jest osobą niezależną, nieznającą domeny, by unikać stronniczości."
+
+    **O artefaktach do analizy statycznej:** "Analizie statycznej można poddać wszystko, co posiada sformalizowaną strukturę i składnię oraz da się przeczytać — kod źródłowy, modele architektury, dokumentację specyfikacji, historyjki użytkownika z DoD i DoR, skrypty testowe i pliki konfiguracyjne."
+
 ---
 
 ## Scenariusz 2.2 — wczesna informacja zwrotna i bramki jakości
@@ -72,3 +83,12 @@ Fundament pracy w **Agile/Scrum**.
 - **Definicja:** uniwersalny standard jakości (**bramka wyjściowa**), który musi zostać spełniony, aby uznać zadanie za w pełni zakończone
 - **Cel:** pewność, że praca jest gotowa dla klienta lub do wdrożenia
 - **Przykład:** kod przeszedł Code Review, napisano testy jednostkowe (z określonym pokryciem), testy automatyczne na stagingu świecą się na zielono, zaktualizowano dokumentację
+
+!!! quote "Jak to powiedzieć egzaminatorowi"
+    **O testowaniu statycznym:** "Badam artefakty bez uruchamiania kodu — przeglądy wymagań, architektury, statyczna analiza kodu. Wykrywa defekty bezpośrednio — wskazuje konkretny problem w dokumencie lub kodzie, zanim w ogóle powstanie działająca aplikacja. Jest tańsze i daje znacznie szybszą informację zwrotną — tak zwany shift-left. Naprawa błędnego wymagania na papierze kosztuje ułamek tego, co naprawa gotowego systemu."
+
+    **O ograniczeniach:** "Nie wykryje awarii w środowisku uruchomieniowym. Ponieważ kod nie jest uruchamiany, nie złapię błędów, które ujawniają się dopiero w boju — problemów z wydajnością pod rzeczywistym obciążeniem, wycieków pamięci z upływem czasu, zakleszczeń czy problemów z integracją zewnętrznych bibliotek."
+
+    **O DoR:** "Definition of Ready to lista warunków — bramka wejściowa — które muszą być spełnione, zanim zespół w ogóle rozpocznie pracę nad zadaniem. Ma zapobiegać przepalaniu czasu na szukanie brakujących informacji. Na przykład: historyjka ma jasno opisany cel biznesowy, dołączone są makiety, określono kryteria akceptacyjne, rozwiązano wszystkie zależności od innych zespołów."
+
+    **O DoD:** "Definition of Done to uniwersalny standard jakości — bramka wyjściowa — który musi zostać spełniony, aby uznać zadanie za w pełni zakończone. Daje pewność, że praca jest gotowa dla klienta lub do wdrożenia."

@@ -1,0 +1,1666 @@
+
+<!doctype html>
+<html lang="pl" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Notatki do egzaminu">
+      
+      
+      
+      
+        <link rel="prev" href="../blok-03-cykl-zycia/">
+      
+      
+        <link rel="next" href="../blok-05-zarzadzanie/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Blok 4 - Analiza i projektowanie - Notatki - Testowanie Oprogramowania</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#blok-4-analiza-i-projektowanie-testow" class="md-skip">
+          Przejdź do treści
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Nagłówek">
+    <a href=".." title="Notatki - Testowanie Oprogramowania" class="md-header__button md-logo" aria-label="Notatki - Testowanie Oprogramowania" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Notatki - Testowanie Oprogramowania
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Blok 4 - Analiza i projektowanie
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Tryb ciemny"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Tryb ciemny" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Tryb jasny"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Tryb jasny" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Szukaj" placeholder="Szukaj" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Szukaj">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Udostępnij" aria-label="Udostępnij" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Wyczyść" aria-label="Wyczyść" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicjowanie wyszukiwania
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Nawigacja" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Notatki - Testowanie Oprogramowania" class="md-nav__button md-logo" aria-label="Notatki - Testowanie Oprogramowania" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Notatki - Testowanie Oprogramowania
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kryteria-oceny/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Kryteria oceny
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../blok-01-podstawy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Blok 1 - Podstawy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../blok-02-statyczne/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Blok 2 - Statyczne
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../blok-03-cykl-zycia/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Blok 3 - Cykl życia
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Blok 4 - Analiza i projektowanie
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Blok 4 - Analiza i projektowanie
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Spis treści">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Spis treści
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#scenariusz-41-podzia-na-klasy-rownowaznosci" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenariusz 4.1 — podział na klasy równoważności
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Scenariusz 4.1 — podział na klasy równoważności">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-walidator-i-klasy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Walidator i klasy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-minimalny-zestaw-dla-100-pokrycia" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Minimalny zestaw dla 100% pokrycia
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scenariusz-42-analiza-wartosci-brzegowych-2-i-3-punktowa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenariusz 4.2 — analiza wartości brzegowych (2- i 3-punktowa)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Scenariusz 4.2 — analiza wartości brzegowych (2- i 3-punktowa)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-klasy-i-granice" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Klasy i granice
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-podejscie-2-punktowe-vs-3-punktowe" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Podejście 2-punktowe vs 3-punktowe
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-obliczanie-pokrycia-dla-istniejacego-zestawu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Obliczanie pokrycia dla istniejącego zestawu
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scenariusz-43-tablice-decyzyjne" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenariusz 4.3 — tablice decyzyjne
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Scenariusz 4.3 — tablice decyzyjne">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-budowa-tablicy-decyzyjnej" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Budowa tablicy decyzyjnej
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-minimalizacja-regu-uogolnianie" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Minimalizacja reguł (uogólnianie)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-sytuacja-niemozliwa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Sytuacja niemożliwa
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scenariusz-44-testowanie-przejsc-miedzy-stanami" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenariusz 4.4 — testowanie przejść między stanami
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Scenariusz 4.4 — testowanie przejść między stanami">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-identyfikacja-stanow-i-przejsc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Identyfikacja stanów i przejść
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-minimalny-zestaw-testow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Minimalny zestaw testów
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scenariusz-45-pokrycie-instrukcji-a-pokrycie-gaezi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenariusz 4.5 — pokrycie instrukcji a pokrycie gałęzi
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Scenariusz 4.5 — pokrycie instrukcji a pokrycie gałęzi">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-fragment-kodu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Fragment kodu
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-100-pokrycia-instrukcji" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 100% pokrycia instrukcji
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-100-pokrycia-gaezi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 100% pokrycia gałęzi
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-czym-skutkuje-ta-roznica" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Czym skutkuje ta różnica
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scenariusz-46-techniki-oparte-na-doswiadczeniu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenariusz 4.6 — techniki oparte na doświadczeniu
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Scenariusz 4.6 — techniki oparte na doświadczeniu">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-wybor-techniki" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Wybór techniki
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-rozpisanie-techniki" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Rozpisanie techniki
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scenariusz-47-podejscie-oparte-na-wspopracy-historyjki-uzytkownika-kryteria-akceptacji-i-atdd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenariusz 4.7 — podejście oparte na współpracy: historyjki użytkownika, kryteria akceptacji i ATDD
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Scenariusz 4.7 — podejście oparte na współpracy: historyjki użytkownika, kryteria akceptacji i ATDD">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-wyprowadzenie-testow-akceptacyjnych-given-when-then-bdd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Wyprowadzenie testów akceptacyjnych (Given-When-Then / BDD)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-ocena-historyjki-kryteria-invest" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Ocena historyjki — kryteria INVEST
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-ocena-kryteriow-akceptacji" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Ocena kryteriów akceptacji
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../blok-05-zarzadzanie/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Blok 5 - Zarządzanie
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../blok-06-jednostkowe-integracyjne/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Blok 6 - Jednostkowe i integracyjne
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../blok-07-wydajnosciowe/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Blok 7 - Wydajnościowe
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../blok-08-kontraktowe/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Blok 8 - Kontraktowe
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../blok-09-bezpieczenstwo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Blok 9 - Bezpieczeństwo i RODO
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../blok-10-genai/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Blok 10 - Generatywna AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Spis treści">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Spis treści
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#scenariusz-41-podzia-na-klasy-rownowaznosci" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenariusz 4.1 — podział na klasy równoważności
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Scenariusz 4.1 — podział na klasy równoważności">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-walidator-i-klasy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Walidator i klasy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-minimalny-zestaw-dla-100-pokrycia" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Minimalny zestaw dla 100% pokrycia
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scenariusz-42-analiza-wartosci-brzegowych-2-i-3-punktowa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenariusz 4.2 — analiza wartości brzegowych (2- i 3-punktowa)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Scenariusz 4.2 — analiza wartości brzegowych (2- i 3-punktowa)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-klasy-i-granice" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Klasy i granice
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-podejscie-2-punktowe-vs-3-punktowe" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Podejście 2-punktowe vs 3-punktowe
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-obliczanie-pokrycia-dla-istniejacego-zestawu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Obliczanie pokrycia dla istniejącego zestawu
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scenariusz-43-tablice-decyzyjne" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenariusz 4.3 — tablice decyzyjne
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Scenariusz 4.3 — tablice decyzyjne">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-budowa-tablicy-decyzyjnej" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Budowa tablicy decyzyjnej
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-minimalizacja-regu-uogolnianie" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Minimalizacja reguł (uogólnianie)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-sytuacja-niemozliwa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Sytuacja niemożliwa
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scenariusz-44-testowanie-przejsc-miedzy-stanami" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenariusz 4.4 — testowanie przejść między stanami
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Scenariusz 4.4 — testowanie przejść między stanami">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-identyfikacja-stanow-i-przejsc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Identyfikacja stanów i przejść
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-minimalny-zestaw-testow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Minimalny zestaw testów
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scenariusz-45-pokrycie-instrukcji-a-pokrycie-gaezi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenariusz 4.5 — pokrycie instrukcji a pokrycie gałęzi
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Scenariusz 4.5 — pokrycie instrukcji a pokrycie gałęzi">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-fragment-kodu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Fragment kodu
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-100-pokrycia-instrukcji" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 100% pokrycia instrukcji
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-100-pokrycia-gaezi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 100% pokrycia gałęzi
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-czym-skutkuje-ta-roznica" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Czym skutkuje ta różnica
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scenariusz-46-techniki-oparte-na-doswiadczeniu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenariusz 4.6 — techniki oparte na doświadczeniu
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Scenariusz 4.6 — techniki oparte na doświadczeniu">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-wybor-techniki" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Wybór techniki
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-rozpisanie-techniki" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Rozpisanie techniki
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scenariusz-47-podejscie-oparte-na-wspopracy-historyjki-uzytkownika-kryteria-akceptacji-i-atdd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenariusz 4.7 — podejście oparte na współpracy: historyjki użytkownika, kryteria akceptacji i ATDD
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Scenariusz 4.7 — podejście oparte na współpracy: historyjki użytkownika, kryteria akceptacji i ATDD">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-wyprowadzenie-testow-akceptacyjnych-given-when-then-bdd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Wyprowadzenie testów akceptacyjnych (Given-When-Then / BDD)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-ocena-historyjki-kryteria-invest" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Ocena historyjki — kryteria INVEST
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-ocena-kryteriow-akceptacji" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Ocena kryteriów akceptacji
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="blok-4-analiza-i-projektowanie-testow">Blok 4 — Analiza i projektowanie testów<a class="headerlink" href="#blok-4-analiza-i-projektowanie-testow" title="Permanent link">&para;</a></h1>
+<h2 id="scenariusz-41-podzia-na-klasy-rownowaznosci">Scenariusz 4.1 — podział na klasy równoważności<a class="headerlink" href="#scenariusz-41-podzia-na-klasy-rownowaznosci" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>Na przykładzie formularza lub walidatora wyznacz klasy poprawne i niepoprawne, a potem podaj minimalny zestaw przypadków dający 100% pokrycia klas.</p>
+</blockquote>
+<h3 id="1-walidator-i-klasy">1. Walidator i klasy<a class="headerlink" href="#1-walidator-i-klasy" title="Permanent link">&para;</a></h3>
+<p><strong>Przykład:</strong> walidator wieku przy zakładaniu konta bankowego (wymagane 18 lat).</p>
+<p>System potraktuje każdy element wewnątrz danej klasy <strong>dokładnie tak samo</strong> — pozwala drastycznie zredukować liczbę testów. <strong>Klasy muszą być rozłączne.</strong></p>
+<p><strong>Klasy poprawne:</strong></p>
+<ul>
+<li><strong>K1:</strong> osoby pełnoletnie (wiek 18–150)</li>
+</ul>
+<p><strong>Klasy niepoprawne</strong> (warto rozdzielić na znaczeniowe i składniowe):</p>
+<ul>
+<li><strong>K2:</strong> osoby niepełnoletnie (0–17)</li>
+<li><strong>K3:</strong> wiek ujemny (&lt; 0)</li>
+<li><strong>K4:</strong> błędy składniowe (litery, znaki specjalne, ułamki — np. <code>"osiemnaście"</code>, <code>"20,5"</code>)</li>
+</ul>
+<h3 id="2-minimalny-zestaw-dla-100-pokrycia">2. Minimalny zestaw dla 100% pokrycia<a class="headerlink" href="#2-minimalny-zestaw-dla-100-pokrycia" title="Permanent link">&para;</a></h3>
+<p><strong>Wzór:</strong> <code>(Liczba przetestowanych klas / Liczba zdefiniowanych klas) * 100%</code></p>
+<p>Po jednym reprezentancie z każdej klasy → <strong>4 przypadki = 100%</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>PT</th>
+<th>Klasa</th>
+<th>Wartość</th>
+<th>Oczekiwany rezultat</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PT1</td>
+<td>K1</td>
+<td>25</td>
+<td>Walidacja OK</td>
+</tr>
+<tr>
+<td>PT2</td>
+<td>K2</td>
+<td>15</td>
+<td>Odrzucenie (komunikat o niepełnoletności)</td>
+</tr>
+<tr>
+<td>PT3</td>
+<td>K3</td>
+<td>-5</td>
+<td>Błąd walidacji (wiek nie może być ujemny)</td>
+</tr>
+<tr>
+<td>PT4</td>
+<td>K4</td>
+<td>"ABC"</td>
+<td>Błąd formatu (wymagana liczba całkowita)</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip">
+<p class="admonition-title">Wskazówka na egzamin</p>
+<p>Doceniana jest umiejętność rozróżnienia w klasach niepoprawnych:
+- błąd <strong>logiczny/znaczeniowy</strong> (np. za młody)
+- błąd <strong>składniowy</strong> (litery w polu numerycznym)</p>
+</div>
+<hr />
+<h2 id="scenariusz-42-analiza-wartosci-brzegowych-2-i-3-punktowa">Scenariusz 4.2 — analiza wartości brzegowych (2- i 3-punktowa)<a class="headerlink" href="#scenariusz-42-analiza-wartosci-brzegowych-2-i-3-punktowa" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>Mając reguły progowe, zaprojektuj testy granic. Policz też, jakie pokrycie wartości brzegowych osiąga już istniejący zestaw przypadków.</p>
+</blockquote>
+<h3 id="1-klasy-i-granice">1. Klasy i granice<a class="headerlink" href="#1-klasy-i-granice" title="Permanent link">&para;</a></h3>
+<p><strong>Przykład:</strong> zniżka dla osób od 18 do 65 lat.</p>
+<ul>
+<li><strong>Klasy:</strong> K1 (0–17), K2 (18–65), K3 (66+)</li>
+<li><strong>Granica:</strong> punkt styku — dla pełnoletności <strong>18</strong></li>
+</ul>
+<h3 id="2-podejscie-2-punktowe-vs-3-punktowe">2. Podejście 2-punktowe vs 3-punktowe<a class="headerlink" href="#2-podejscie-2-punktowe-vs-3-punktowe" title="Permanent link">&para;</a></h3>
+<p><strong>2-punktowe</strong> — sama wartość brzegowa + najbliższa wartość z sąsiedniej klasy</p>
+<ul>
+<li>Dla progu 18: <strong>17, 18</strong></li>
+</ul>
+<p><strong>3-punktowe</strong> — sama wartość brzegowa + najbliżsi sąsiedzi z <strong>obu stron</strong></p>
+<ul>
+<li>Dla progu 18: <strong>17, 18, 19</strong></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Dlaczego 3-punktowe jest bezpieczniejsze</p>
+<p>2-punktowe może nie wykryć błędu, jeśli programista użył <strong>złego operatora relacyjnego</strong> (np. <code>&lt; 10</code> zamiast <code>&lt;= 10</code>). 3-punktowe na pewno to wyłapie.</p>
+</div>
+<h3 id="3-obliczanie-pokrycia-dla-istniejacego-zestawu">3. Obliczanie pokrycia dla istniejącego zestawu<a class="headerlink" href="#3-obliczanie-pokrycia-dla-istniejacego-zestawu" title="Permanent link">&para;</a></h3>
+<p><strong>Wzór:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>(Liczba przetestowanych wartości brzegowych / Łączna liczba zdefiniowanych wartości brzegowych) * 100%
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Usuwaj duplikaty</p>
+<p>Wartość 18 pokrywa granicę wspólną dla dwóch klas — to <strong>jedna</strong> wartość brzegowa.</p>
+<p><strong>Przykład:</strong> system ma 5 wartości brzegowych (0, 17, 18, 65, 66), stary zestaw sprawdza 17 i 18 → pokrycie = (2/5) * 100% = <strong>40%</strong></p>
+</div>
+<hr />
+<h2 id="scenariusz-43-tablice-decyzyjne">Scenariusz 4.3 — tablice decyzyjne<a class="headerlink" href="#scenariusz-43-tablice-decyzyjne" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>Dla złożonej logiki biznesowej (np. naliczanie rabatów albo akceptacja kredytu) zbuduj tablicę decyzyjną, zminimalizuj reguły i wskaż tę, która opisuje sytuację niemożliwą.</p>
+</blockquote>
+<h3 id="1-budowa-tablicy-decyzyjnej">1. Budowa tablicy decyzyjnej<a class="headerlink" href="#1-budowa-tablicy-decyzyjnej" title="Permanent link">&para;</a></h3>
+<p>Tablica składa się z:</p>
+<ul>
+<li><strong>Warunków</strong> (dane wejściowe)</li>
+<li><strong>Akcji</strong> (operacje systemu)</li>
+<li><strong>Reguł</strong> (unikalne kombinacje tych dwóch)</li>
+</ul>
+<p><strong>Konstrukcja:</strong></p>
+<ul>
+<li>2–3 warunki wejściowe jako Prawda/Fałsz (T/F)</li>
+<li>Możliwe akcje (zgoda, odrzucenie, przekazanie do ręcznej analizy)</li>
+<li>Przykładowa reguła — pokaż 1–2 kolumny "happy path" (wszystkie T → akceptacja)</li>
+</ul>
+<h3 id="2-minimalizacja-regu-uogolnianie">2. Minimalizacja reguł (uogólnianie)<a class="headerlink" href="#2-minimalizacja-regu-uogolnianie" title="Permanent link">&para;</a></h3>
+<p><strong>Problem:</strong> przy dużej liczbie warunków tablice stają się ogromne i nieczytelne.</p>
+<p><strong>Rozwiązanie:</strong> szukasz warunku <strong>krytycznego</strong>, który determinuje akcję bez względu na pozostałe parametry.</p>
+<ul>
+<li>Przykład: klient nie ma stałych dochodów → odrzucenie kredytu (reszta nieistotna)</li>
+</ul>
+<p><strong>Zapis:</strong> decydujący warunek wpisujesz (T/F), pozostałe zastępujesz znakiem <code>-</code>. Redukuje liczbę testów.</p>
+<h3 id="3-sytuacja-niemozliwa">3. Sytuacja niemożliwa<a class="headerlink" href="#3-sytuacja-niemozliwa" title="Permanent link">&para;</a></h3>
+<p>Logika, która z biznesowego punktu widzenia <strong>wzajemnie się wyklucza</strong> — wykreślasz z analizy.</p>
+<p><strong>Przykład:</strong> kombinacja "klient jest u nas całkowicie nowy" (W4=T) <strong>i jednocześnie</strong> "ma wewnętrzną dobrą historię kredytową" (W3=T) → biznesowo niemożliwa, nie tracimy na nią czasu.</p>
+<hr />
+<h2 id="scenariusz-44-testowanie-przejsc-miedzy-stanami">Scenariusz 4.4 — testowanie przejść między stanami<a class="headerlink" href="#scenariusz-44-testowanie-przejsc-miedzy-stanami" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>Dla maszyny stanów, np. cyklu życia zamówienia albo dokumentu, wyznacz minimalny zestaw testów pokrywający poprawne przejścia.</p>
+</blockquote>
+<h3 id="1-identyfikacja-stanow-i-przejsc">1. Identyfikacja stanów i przejść<a class="headerlink" href="#1-identyfikacja-stanow-i-przejsc" title="Permanent link">&para;</a></h3>
+<p>Model obrazuje <strong>cykl życia obiektu</strong> w systemie.</p>
+<p><strong>Przykład — zamówienie:</strong></p>
+<ul>
+<li><strong>Stany:</strong> Nowe, Opłacone, Wysłane</li>
+<li><strong>Przejścia:</strong> akcje wywołujące zmianę stanu (np. zaksięgowanie wpłaty)</li>
+</ul>
+<h3 id="2-minimalny-zestaw-testow">2. Minimalny zestaw testów<a class="headerlink" href="#2-minimalny-zestaw-testow" title="Permanent link">&para;</a></h3>
+<p><strong>Cel:</strong> pokryć wszystkie <strong>poprawne przejścia</strong> (happy paths).</p>
+<div class="admonition tip">
+<p class="admonition-title">Klucz na egzamin</p>
+<p><strong>Nie tworzysz osobnego testu dla każdego pojedynczego przejścia.</strong> Łączysz przejścia w dłuższe, logiczne ścieżki od stanu początkowego do końcowego.</p>
+</div>
+<p><strong>Schemat — cykl życia dokumentu:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Szkic → Weryfikacja → Opublikowany / Odrzucony
+</code></pre></div>
+<p>Zamiast testować każdy krok osobno, tworzysz optymalne ścieżki:</p>
+<ul>
+<li><strong>Test 1:</strong> Szkic → (zgłoszenie) → Weryfikacja → (akceptacja) → <strong>Opublikowany</strong></li>
+<li><strong>Test 2:</strong> Szkic → (zgłoszenie) → Weryfikacja → (odrzucenie) → <strong>Odrzucony</strong></li>
+</ul>
+<p>Dwoma testami pokrywasz wszystkie możliwe prawidłowe rozgałęzienia.</p>
+<hr />
+<h2 id="scenariusz-45-pokrycie-instrukcji-a-pokrycie-gaezi">Scenariusz 4.5 — pokrycie instrukcji a pokrycie gałęzi<a class="headerlink" href="#scenariusz-45-pokrycie-instrukcji-a-pokrycie-gaezi" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>Dla fragmentu kodu dobierz przypadki dające 100% pokrycia instrukcji i osobno 100% pokrycia gałęzi, a potem wyjaśnij, czym ta różnica skutkuje.</p>
+</blockquote>
+<h3 id="1-fragment-kodu">1. Fragment kodu<a class="headerlink" href="#1-fragment-kodu" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">wiek</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mf">18</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span><span class="nx">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;dorosły&quot;</span><span class="p">;</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="p">}</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="k">return</span><span class="w"> </span><span class="nx">status</span><span class="p">;</span>
+</code></pre></div>
+<h3 id="2-100-pokrycia-instrukcji">2. 100% pokrycia instrukcji<a class="headerlink" href="#2-100-pokrycia-instrukcji" title="Permanent link">&para;</a></h3>
+<p><strong>Zestaw testów:</strong> wystarczy <strong>jeden</strong> przypadek, gdzie warunek jest prawdziwy — np. <code>wiek = 20</code>.</p>
+<p>System wejdzie w blok <code>if</code> i wykona każdą linijkę kodu → <strong>100% pokrycia instrukcji</strong>, ale <strong>pokrycie gałęzi tylko 50%</strong> (nigdy nie sprawdziłeś zachowania dla fałszu).</p>
+<h3 id="3-100-pokrycia-gaezi">3. 100% pokrycia gałęzi<a class="headerlink" href="#3-100-pokrycia-gaezi" title="Permanent link">&para;</a></h3>
+<p><strong>Zestaw testów:</strong> dwa przypadki:</p>
+<ul>
+<li><code>wiek = 20</code> (True)</li>
+<li><code>wiek = 15</code> (False)</li>
+</ul>
+<p>Wymusza przejście przez <strong>obie ścieżki algorytmu</strong> — automatycznie gwarantuje też wysokie pokrycie instrukcji.</p>
+<h3 id="4-czym-skutkuje-ta-roznica">4. Czym skutkuje ta różnica<a class="headerlink" href="#4-czym-skutkuje-ta-roznica" title="Permanent link">&para;</a></h3>
+<div class="admonition warning">
+<p class="admonition-title">Kluczowy wniosek</p>
+<p><strong>100% pokrycia instrukcji daje fałszywe poczucie bezpieczeństwa.</strong> Jeśli poprzestaniesz tylko na pokryciu instrukcji (jeden test), ścieżka dla "fałszu" pozostanie całkowicie w ciemno.</p>
+<p>Na produkcji może to skutkować np. <strong>Null Reference Exception</strong>, jeśli programista zapomniał ustawić domyślny status dla osób poniżej 18.</p>
+<p><strong>Celuj przede wszystkim w pokrycie gałęzi.</strong></p>
+</div>
+<hr />
+<h2 id="scenariusz-46-techniki-oparte-na-doswiadczeniu">Scenariusz 4.6 — techniki oparte na doświadczeniu<a class="headerlink" href="#scenariusz-46-techniki-oparte-na-doswiadczeniu" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>Zastosuj zgadywanie błędów, zaplanuj sesję eksploracyjną (cel, zakres, czego szukasz) albo ocenę według listy kontrolnej, a potem uzasadnij, dlaczego w tym kontekście wybierasz właśnie tę technikę.</p>
+</blockquote>
+<h3 id="1-wybor-techniki">1. Wybór techniki<a class="headerlink" href="#1-wybor-techniki" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Technika</th>
+<th>Kiedy wybrać</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Zgadywanie błędów</strong></td>
+<td>Świetnie znam domenę i wiem, gdzie programiści najczęściej się mylą</td>
+</tr>
+<tr>
+<td><strong>Testowanie eksploracyjne</strong></td>
+<td>Brakuje dokumentacji (lub czasu), system jest dla mnie nowy i muszę się go nauczyć</td>
+</tr>
+<tr>
+<td><strong>Lista kontrolna</strong></td>
+<td>Ustrukturyzowane sprawdzenie standardów (UX, bezpieczeństwo)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="2-rozpisanie-techniki">2. Rozpisanie techniki<a class="headerlink" href="#2-rozpisanie-techniki" title="Permanent link">&para;</a></h3>
+<p><strong>A. Zgadywanie błędów (Error Guessing)</strong></p>
+<ul>
+<li><strong>Akcja:</strong> projektuję ataki na usterki (np. znaki specjalne w polu numerycznym), bazując na intuicji</li>
+<li><strong>Zasada:</strong> narzucam <strong>ścisły limit czasu</strong> (np. 1,5 h), by nie szukać w nieskończoność</li>
+<li>Jeśli znajdę dużo błędów → zgłaszam potrzebę głębszej analizy klastra</li>
+</ul>
+<p><strong>B. Sesja eksploracyjna</strong></p>
+<ul>
+<li><strong>Cel:</strong> poznanie zachowania nowej funkcji + wyłapanie krytycznych awarii</li>
+<li><strong>Zakres:</strong> ograniczam się do jednego konkretnego modułu</li>
+<li><strong>Podejście (iteracyjne):</strong></li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>obserwuję system → uczę się → projektuję test w locie → analizuję wynik
+</code></pre></div>
+<ul>
+<li>Zostawiam notatki (np. plik Markdown) dla reszty zespołu</li>
+</ul>
+<p><strong>C. Ocena według listy kontrolnej (Checklist)</strong></p>
+<ul>
+<li><strong>Cel:</strong> pewność, że żaden standardowy element nie został pominięty</li>
+<li><strong>Przykład:</strong> UX z <strong>Heurystykami Nielsena</strong> (status systemu, możliwość cofnięcia akcji, itd.)</li>
+<li><strong>Zasada:</strong> lista musi być "żywa" i ewoluować z projektem, by nie stała się bezużyteczna</li>
+</ul>
+<hr />
+<h2 id="scenariusz-47-podejscie-oparte-na-wspopracy-historyjki-uzytkownika-kryteria-akceptacji-i-atdd">Scenariusz 4.7 — podejście oparte na współpracy: historyjki użytkownika, kryteria akceptacji i ATDD<a class="headerlink" href="#scenariusz-47-podejscie-oparte-na-wspopracy-historyjki-uzytkownika-kryteria-akceptacji-i-atdd" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>Z historyjki wyprowadź testy akceptacyjne, zarówno ścieżkę pozytywną, jak i przypadki negatywne. Samą historyjkę oceń według kryteriów INVEST, a kryteria akceptacji osobno, pod kątem testowalności i jednoznaczności.</p>
+</blockquote>
+<h3 id="1-wyprowadzenie-testow-akceptacyjnych-given-when-then-bdd">1. Wyprowadzenie testów akceptacyjnych (Given-When-Then / BDD)<a class="headerlink" href="#1-wyprowadzenie-testow-akceptacyjnych-given-when-then-bdd" title="Permanent link">&para;</a></h3>
+<p><strong>Ścieżka pozytywna (Happy Path):</strong> poprawny przepływ realizujący główny cel historyjki</p>
+<ul>
+<li><em>Przykład:</em> posiadając produkt na stanie, po kliknięciu "dodaj" ilość w koszyku zwiększa się o 1</li>
+</ul>
+<p><strong>Przypadki negatywne:</strong> zachowanie systemu, gdy coś idzie nie tak</p>
+<ul>
+<li><em>Przykład:</em> próba dodania do koszyka produktu o stanie magazynowym 0 → oczekiwany komunikat o błędzie</li>
+</ul>
+<h3 id="2-ocena-historyjki-kryteria-invest">2. Ocena historyjki — kryteria INVEST<a class="headerlink" href="#2-ocena-historyjki-kryteria-invest" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Litera</th>
+<th>Pełna nazwa</th>
+<th>Pytanie</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>I</strong></td>
+<td>Independent (Niezależna)</td>
+<td>Czy można wdrożyć i przetestować oddzielnie, bez blokad?</td>
+</tr>
+<tr>
+<td><strong>N</strong></td>
+<td>Negotiable (Negocjowalna)</td>
+<td>Czy określa "co", zostawiając zespołowi dyskusję "jak"?</td>
+</tr>
+<tr>
+<td><strong>V</strong></td>
+<td>Valuable (Wartościowa)</td>
+<td>Czy dostarcza realną korzyść biznesowi lub użytkownikowi?</td>
+</tr>
+<tr>
+<td><strong>E</strong></td>
+<td>Estimable (Szacowalna)</td>
+<td>Czy zespół potrafi oszacować czas wykonania?</td>
+</tr>
+<tr>
+<td><strong>S</strong></td>
+<td>Small (Mała)</td>
+<td>Czy zmieści się w jednej iteracji (sprincie)?</td>
+</tr>
+<tr>
+<td><strong>T</strong></td>
+<td>Testable (Testowalna)</td>
+<td>Czy da się napisać scenariusze potwierdzające jej ukończenie?</td>
+</tr>
+</tbody>
+</table>
+<h3 id="3-ocena-kryteriow-akceptacji">3. Ocena kryteriów akceptacji<a class="headerlink" href="#3-ocena-kryteriow-akceptacji" title="Permanent link">&para;</a></h3>
+<p><strong>Jednoznaczność:</strong></p>
+<ul>
+<li>Wskaż "miękkie" sformułowania (<em>"system działa szybko"</em>, <em>"ładny interfejs"</em>) i skrytykuj je</li>
+<li>Kryterium musi być <strong>mierzalne</strong> — zamiast "szybko" → "poniżej 30 sekund"</li>
+</ul>
+<p><strong>Testowalność:</strong></p>
+<ul>
+<li>Kryterium na tyle konkretne, że pozwala na <strong>zero-jedynkowy test</strong> weryfikujący warunek (np. test automatyczny)</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Powrót do góry
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.tracking", "navigation.sections", "navigation.expand", "navigation.top", "navigation.indexes", "search.suggest", "search.highlight", "search.share", "content.code.copy", "toc.follow"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Skopiowano do schowka", "clipboard.copy": "Kopiuj do schowka", "search.result.more.one": "1 wi\u0119cej na tej stronie", "search.result.more.other": "# wi\u0119cej na tej stronie", "search.result.none": "Brak wynik\u00f3w wyszukiwania", "search.result.one": "Wyniki wyszukiwania: 1", "search.result.other": "Wyniki wyszukiwania: #", "search.result.placeholder": "Zacznij pisa\u0107, aby szuka\u0107", "search.result.term.missing": "Brak", "select.version": "Wybierz wersj\u0119"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

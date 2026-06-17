@@ -40,6 +40,19 @@
 
 - ✅ gdy system opiera się na **złożonych, krytycznych algorytmach niskopoziomowych** i potrzeba pewności fundamentu
 
+!!! quote "Jak to powiedzieć egzaminatorowi"
+    **O poziomach testów:** "Testy modułowe lokalizują błąd w samej logice, kalkulacji lub pojedynczej metodzie — np. błąd algorytmu obliczającego zniżkę w koszyku. Testy integracyjne łapią awarię w komunikacji między modułami lub zewnętrznymi systemami — np. moduł sklepu wysyła kwotę w PLN, a bramka płatności jako osobny mikroserwis oczekuje EUR. Testy systemowe to problem z całym oprogramowaniem, np. system zawiesza się, gdy 1000 użytkowników naraz próbuje złożyć zamówienie. Testy akceptacyjne to niespełnienie wymagań biznesowych — system działa technicznie bez zarzutu, ale proces rezerwacji jest na tyle nieintuicyjny, że klienci masowo z niego rezygnują."
+
+    **O wyborze Waterfall/V-modelu:** "Wybieram podejście sekwencyjne dla systemów krytycznych — medycznych, lotniczych — gdzie wymagania prawne są twarde, ustalone z góry i nie ulegają zmianom."
+
+    **O wyborze Agile:** "Wybieram dla większości projektów biznesowych i startupów, gdzie wymagania są zmienne, a kluczowy jest szybki czas wejścia na rynek i ciągła adaptacja poprzez wczesny feedback."
+
+    **O Big Bang:** "Wybieram tylko dla trywialnie małych systemów. W dużych projektach powoduje chaos i skrajnie utrudnia zlokalizowanie przyczyny awarii."
+
+    **O top-down:** "Testuję od głównego interfejsu w dół. Brakujące komponenty niższego poziomu zastępuję zaślepkami — stubami. Wybieram, gdy chcę szybko pokazać klientowi działający prototyp interfejsu."
+
+    **O bottom-up:** "Buduję od fundamentów — np. warstwy dostępu do danych — w górę, używając sterowników do symulowania wyższych warstw. Wybieram, gdy system opiera się na złożonych, krytycznych algorytmach niskopoziomowych i trzeba mieć pewność, że fundament jest stabilny."
+
 ---
 
 ## Scenariusz 3.2 — przesunięcie testów w lewo, podejścia "najpierw test" i testowanie zmianowe
@@ -82,3 +95,10 @@
 - Uruchamianie całej puli testów bywa za drogie i czasochłonne
 - **Analiza wpływu** — wybierz testy tylko dla modułów stykających się ze zmodyfikowanym kodem
 - Dodaj podstawowe **happy paths** dla najkrytyczniejszych funkcji
+
+!!! quote "Jak to powiedzieć egzaminatorowi"
+    **O shift-left:** "Konkretne działania to włączenie testerów w przeglądy wymagań i historyjek, np. podczas Backlog Refinement, pisanie scenariuszy testowych jeszcze przed napisaniem kodu we współpracy biznesu z IT oraz wczesna analiza statyczna dokumentacji. Wykrycie problemów na etapie pomysłu jest znacznie tańsze niż naprawa gotowego systemu, a sam zespół zyskuje wspólną wizję i szybszy feedback, co zapobiega budowaniu błędnego oprogramowania."
+
+    **O regresji:** "Gdy programista naprawia błąd, wykonuję najpierw testy potwierdzające, aby upewnić się, że ten konkretny błąd zniknął. Każde ponowne uruchomienie testów dla pozostałych, wcześniej działających modułów to właśnie regresja — ma sprawdzić, czy naprawa nie wywołała nowych awarii w innych miejscach."
+
+    **O zakresie regresji:** "Uruchamianie całej puli testów bywa zbyt drogie i czasochłonne. Planuję zakres regresji na podstawie analizy wpływu — wybieram tylko testy dla modułów, które stykają się ze zmodyfikowanym kodem, dodając do tego podstawowe happy paths dla najkrytyczniejszych funkcji systemu."

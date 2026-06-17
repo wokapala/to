@@ -1,0 +1,1013 @@
+
+<!doctype html>
+<html lang="pl" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Notatki do egzaminu">
+      
+      
+      
+      
+        <link rel="prev" href="../blok-02-statyczne/">
+      
+      
+        <link rel="next" href="../blok-04-analiza-projektowanie/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Blok 3 - Cykl życia - Notatki - Testowanie Oprogramowania</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#blok-3-testowanie-w-cyklu-zycia-oprogramowania" class="md-skip">
+          Przejdź do treści
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Nagłówek">
+    <a href=".." title="Notatki - Testowanie Oprogramowania" class="md-header__button md-logo" aria-label="Notatki - Testowanie Oprogramowania" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Notatki - Testowanie Oprogramowania
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Blok 3 - Cykl życia
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Tryb ciemny"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Tryb ciemny" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Tryb jasny"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Tryb jasny" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Szukaj" placeholder="Szukaj" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Szukaj">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Udostępnij" aria-label="Udostępnij" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Wyczyść" aria-label="Wyczyść" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicjowanie wyszukiwania
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Nawigacja" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Notatki - Testowanie Oprogramowania" class="md-nav__button md-logo" aria-label="Notatki - Testowanie Oprogramowania" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Notatki - Testowanie Oprogramowania
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kryteria-oceny/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Kryteria oceny
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../blok-01-podstawy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Blok 1 - Podstawy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../blok-02-statyczne/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Blok 2 - Statyczne
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Blok 3 - Cykl życia
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Blok 3 - Cykl życia
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Spis treści">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Spis treści
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#scenariusz-31-modele-sdlc-poziomy-testow-i-strategia-integracji" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenariusz 3.1 — modele SDLC, poziomy testów i strategia integracji
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Scenariusz 3.1 — modele SDLC, poziomy testów i strategia integracji">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-przypisanie-awarii-do-poziomow-testow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Przypisanie awarii do poziomów testów
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-dobor-modelu-wytwarzania-sdlc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Dobór modelu wytwarzania (SDLC)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-strategia-integracji" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Strategia integracji
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scenariusz-32-przesuniecie-testow-w-lewo-podejscia-najpierw-test-i-testowanie-zmianowe" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenariusz 3.2 — przesunięcie testów w lewo, podejścia "najpierw test" i testowanie zmianowe
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Scenariusz 3.2 — przesunięcie testów w lewo, podejścia &#34;najpierw test&#34; i testowanie zmianowe">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-shift-left-przesuniecie-testow-w-lewo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Shift-left (przesunięcie testów w lewo)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-scenariusze-najpierw-test-given-when-then-bdd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Scenariusze "najpierw test" (Given-When-Then / BDD)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-testowanie-zmianowe-i-planowanie-regresji" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Testowanie zmianowe i planowanie regresji
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../blok-04-analiza-projektowanie/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Blok 4 - Analiza i projektowanie
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../blok-05-zarzadzanie/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Blok 5 - Zarządzanie
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../blok-06-jednostkowe-integracyjne/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Blok 6 - Jednostkowe i integracyjne
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../blok-07-wydajnosciowe/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Blok 7 - Wydajnościowe
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../blok-08-kontraktowe/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Blok 8 - Kontraktowe
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../blok-09-bezpieczenstwo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Blok 9 - Bezpieczeństwo i RODO
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../blok-10-genai/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Blok 10 - Generatywna AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Spis treści">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Spis treści
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#scenariusz-31-modele-sdlc-poziomy-testow-i-strategia-integracji" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenariusz 3.1 — modele SDLC, poziomy testów i strategia integracji
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Scenariusz 3.1 — modele SDLC, poziomy testów i strategia integracji">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-przypisanie-awarii-do-poziomow-testow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Przypisanie awarii do poziomów testów
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-dobor-modelu-wytwarzania-sdlc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Dobór modelu wytwarzania (SDLC)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-strategia-integracji" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Strategia integracji
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scenariusz-32-przesuniecie-testow-w-lewo-podejscia-najpierw-test-i-testowanie-zmianowe" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenariusz 3.2 — przesunięcie testów w lewo, podejścia "najpierw test" i testowanie zmianowe
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Scenariusz 3.2 — przesunięcie testów w lewo, podejścia &#34;najpierw test&#34; i testowanie zmianowe">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-shift-left-przesuniecie-testow-w-lewo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Shift-left (przesunięcie testów w lewo)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-scenariusze-najpierw-test-given-when-then-bdd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Scenariusze "najpierw test" (Given-When-Then / BDD)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-testowanie-zmianowe-i-planowanie-regresji" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Testowanie zmianowe i planowanie regresji
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="blok-3-testowanie-w-cyklu-zycia-oprogramowania">Blok 3 — Testowanie w cyklu życia oprogramowania<a class="headerlink" href="#blok-3-testowanie-w-cyklu-zycia-oprogramowania" title="Permanent link">&para;</a></h1>
+<h2 id="scenariusz-31-modele-sdlc-poziomy-testow-i-strategia-integracji">Scenariusz 3.1 — modele SDLC, poziomy testów i strategia integracji<a class="headerlink" href="#scenariusz-31-modele-sdlc-poziomy-testow-i-strategia-integracji" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>Dla wskazanego systemu przypisz typowe awarie do poziomów testów i dobierz podejście do modelu wytwarzania — sekwencyjnego albo zwinnego. Uzasadnij wybór strategii integracji: jednoczesna (wszystko naraz), zstępująca czy wstępująca.</p>
+</blockquote>
+<h3 id="1-przypisanie-awarii-do-poziomow-testow">1. Przypisanie awarii do poziomów testów<a class="headerlink" href="#1-przypisanie-awarii-do-poziomow-testow" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Poziom</th>
+<th>Co testujemy</th>
+<th>Przykład awarii</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Modułowe (jednostkowe)</strong></td>
+<td>Logika, kalkulacja, pojedyncza metoda</td>
+<td>Błąd algorytmu obliczającego zniżkę w koszyku</td>
+</tr>
+<tr>
+<td><strong>Integracyjne</strong></td>
+<td>Komunikacja między modułami / zewnętrznymi systemami</td>
+<td>Moduł sklepu wysyła PLN, bramka płatności (mikroserwis) oczekuje EUR → transakcja odrzucona</td>
+</tr>
+<tr>
+<td><strong>Systemowe</strong></td>
+<td>Cały system, E2E lub niefunkcjonalne</td>
+<td>System zawiesza się przy 1000 użytkowników naraz (awaria wydajnościowa)</td>
+</tr>
+<tr>
+<td><strong>Akceptacyjne</strong></td>
+<td>Wymagania biznesowe, prawne, UX</td>
+<td>System działa technicznie OK, ale rezerwacja jest tak nieintuicyjna, że klienci rezygnują</td>
+</tr>
+</tbody>
+</table>
+<h3 id="2-dobor-modelu-wytwarzania-sdlc">2. Dobór modelu wytwarzania (SDLC)<a class="headerlink" href="#2-dobor-modelu-wytwarzania-sdlc" title="Permanent link">&para;</a></h3>
+<p><strong>Podejście sekwencyjne (Waterfall, V-model)</strong></p>
+<ul>
+<li><strong>Kiedy:</strong> systemy krytyczne (medyczne, lotnicze)</li>
+<li><strong>Dlaczego:</strong> wymagania prawne są twarde, ustalone z góry, nie ulegają zmianom</li>
+</ul>
+<p><strong>Podejście zwinne (Agile)</strong></p>
+<ul>
+<li><strong>Kiedy:</strong> większość projektów biznesowych i startupów</li>
+<li><strong>Dlaczego:</strong> wymagania zmienne, kluczowy szybki czas wejścia na rynek, ciągła adaptacja przez wczesny feedback</li>
+</ul>
+<h3 id="3-strategia-integracji">3. Strategia integracji<a class="headerlink" href="#3-strategia-integracji" title="Permanent link">&para;</a></h3>
+<p><strong>Jednoczesna (Big Bang)</strong> — integrujemy wszystkie moduły naraz</p>
+<ul>
+<li>✅ tylko dla trywialnie małych systemów</li>
+<li>❌ w dużych projektach powoduje chaos, utrudnia lokalizację przyczyny awarii</li>
+</ul>
+<p><strong>Zstępująca (Top-down)</strong> — testujemy od głównego interfejsu (UI) w dół, brakujące komponenty niższego poziomu zastępujemy <strong>zaślepkami (stubami)</strong></p>
+<ul>
+<li>✅ gdy chcesz <strong>szybko pokazać klientowi działający prototyp interfejsu</strong></li>
+</ul>
+<p><strong>Wstępująca (Bottom-up)</strong> — od fundamentów (warstwy dostępu do danych) w górę, używając <strong>sterowników (driverów)</strong> do symulowania wyższych warstw</p>
+<ul>
+<li>✅ gdy system opiera się na <strong>złożonych, krytycznych algorytmach niskopoziomowych</strong> i potrzeba pewności fundamentu</li>
+</ul>
+<hr />
+<h2 id="scenariusz-32-przesuniecie-testow-w-lewo-podejscia-najpierw-test-i-testowanie-zmianowe">Scenariusz 3.2 — przesunięcie testów w lewo, podejścia "najpierw test" i testowanie zmianowe<a class="headerlink" href="#scenariusz-32-przesuniecie-testow-w-lewo-podejscia-najpierw-test-i-testowanie-zmianowe" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>Wskaż konkretne działania przesuwające testy w lewo i powiedz, co dają. Dla wybranej historyjki zaprojektuj scenariusze w duchu "najpierw test" (warunek początkowy — działanie — oczekiwany rezultat). Na koniec z historii wykonania ustal, które uruchomienia to regresja, i zaplanuj jej zakres po zmianie.</p>
+</blockquote>
+<h3 id="1-shift-left-przesuniecie-testow-w-lewo">1. Shift-left (przesunięcie testów w lewo)<a class="headerlink" href="#1-shift-left-przesuniecie-testow-w-lewo" title="Permanent link">&para;</a></h3>
+<p><strong>Konkretne działania:</strong></p>
+<ul>
+<li>Włączenie testerów w <strong>przeglądy wymagań i historyjek</strong> (np. Backlog Refinement)</li>
+<li>Pisanie <strong>scenariuszy testowych jeszcze przed kodem</strong> (współpraca biznes ↔ IT)</li>
+<li><strong>Wczesna analiza statyczna</strong> dokumentacji</li>
+</ul>
+<p><strong>Co daje:</strong></p>
+<ul>
+<li>Wykrycie problemów na etapie pomysłu jest znacznie tańsze niż naprawa gotowego systemu</li>
+<li>Zespół zyskuje <strong>wspólną wizję</strong> i szybszy feedback</li>
+<li>Zapobiega budowaniu błędnego oprogramowania</li>
+</ul>
+<h3 id="2-scenariusze-najpierw-test-given-when-then-bdd">2. Scenariusze "najpierw test" (Given-When-Then / BDD)<a class="headerlink" href="#2-scenariusze-najpierw-test-given-when-then-bdd" title="Permanent link">&para;</a></h3>
+<p><strong>Historyjka:</strong> <em>Jako klient chcę dodać produkt do koszyka, aby złożyć zamówienie.</em></p>
+<p><strong>Scenariusz pozytywny:</strong></p>
+<ul>
+<li><strong>Given (warunek początkowy):</strong> klient jest zalogowany, ma pusty koszyk, produkt jest dostępny w magazynie</li>
+<li><strong>When (działanie):</strong> klient klika "Dodaj do koszyka" przy wybranym produkcie</li>
+<li><strong>Then (oczekiwany rezultat):</strong> ilość produktów w koszyku zmienia się na 1, system rezerwuje sztukę produktu w tle</li>
+</ul>
+<h3 id="3-testowanie-zmianowe-i-planowanie-regresji">3. Testowanie zmianowe i planowanie regresji<a class="headerlink" href="#3-testowanie-zmianowe-i-planowanie-regresji" title="Permanent link">&para;</a></h3>
+<p><strong>Identyfikacja regresji:</strong></p>
+<ul>
+<li>Gdy programista naprawia błąd, wykonujesz najpierw <strong>testy potwierdzające</strong> (czy ten konkretny błąd zniknął)</li>
+<li>Każde <strong>ponowne uruchomienie testów dla pozostałych, wcześniej działających modułów</strong> = <strong>regresja</strong> — sprawdza, czy naprawa nie wywołała nowych awarii</li>
+</ul>
+<p><strong>Planowanie zakresu:</strong></p>
+<ul>
+<li>Uruchamianie całej puli testów bywa za drogie i czasochłonne</li>
+<li><strong>Analiza wpływu</strong> — wybierz testy tylko dla modułów stykających się ze zmodyfikowanym kodem</li>
+<li>Dodaj podstawowe <strong>happy paths</strong> dla najkrytyczniejszych funkcji</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Powrót do góry
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.tracking", "navigation.sections", "navigation.expand", "navigation.top", "navigation.indexes", "search.suggest", "search.highlight", "search.share", "content.code.copy", "toc.follow"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Skopiowano do schowka", "clipboard.copy": "Kopiuj do schowka", "search.result.more.one": "1 wi\u0119cej na tej stronie", "search.result.more.other": "# wi\u0119cej na tej stronie", "search.result.none": "Brak wynik\u00f3w wyszukiwania", "search.result.one": "Wyniki wyszukiwania: 1", "search.result.other": "Wyniki wyszukiwania: #", "search.result.placeholder": "Zacznij pisa\u0107, aby szuka\u0107", "search.result.term.missing": "Brak", "select.version": "Wybierz wersj\u0119"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

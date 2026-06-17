@@ -63,6 +63,21 @@ Trudniejsze niż w klasycznym oprogramowaniu — z uwagi na **niedeterministyczn
 - Algorytm **automatycznie przekierowuje ruch** do lepiej działającej wersji
 - Minimalizuje straty biznesowe
 
+!!! quote "Jak to powiedzieć egzaminatorowi"
+    **O różnicy eval vs A/B:** "Ewaluacje weryfikują kompetencje i możliwości modelu, odpowiadając na pytanie, czy potrafi on wykonać zadanie — np. sprawdzają wierność źródłom i ton. Testy A/B z kolei sprawdzają rzeczywistą wartość dla użytkownika i wpływ na biznes, mierząc zachowania takie jak retencja, konwersja czy wskaźnik odrzuceń na żywym ruchu."
+
+    **O Golden Dataset:** "Zestaw ewaluacyjny zwany Golden Dataset musi być reprezentatywny dla środowiska produkcyjnego. Powinien być różnorodny i uwzględniać ścieżki pozytywne, przypadki brzegowe oraz ataki bezpieczeństwa — np. jailbreaki. Zbiór musi być również odkażony — decontaminated — czyli nie może pokrywać się z danymi treningowymi modelu. Służy jako filtr do testów regresyjnych w potoku CI/CD."
+
+    **O ewaluatorach:** "To automatyczne sprawdziany oceniające konkretne wskaźniki systemu — stopień halucynacji, zgodność z dostarczonym kontekstem (faithfulness) i trafność."
+
+    **O LLM-as-a-Judge:** "Technika, w której potężny model ocenia subiektywne kryteria odpowiedzi — spójność, pomocność. Skaluje się lepiej niż ocena ludzka, ale ma ograniczenia i wbudowane uprzedzenia — np. faworyzowanie własnego stylu wypowiedzi. Dlatego ostateczna weryfikacja zawsze wymaga nadzoru ekspertów domenowych."
+
+    **O A/B w AI:** "Testowanie A/B w AI jest znacznie trudniejsze z uwagi na niedeterministyczne, losowe odpowiedzi modeli. Wymagane są bardzo duże próbki — często ponad 10 000 interakcji na wariant — aby odróżnić rzeczywistą poprawę jakości od losowego szumu. Ocena musi być wielowymiarowa — trafność, koszty, czas odpowiedzi."
+
+    **O Artificial Latency Injection:** "Większe i mądrzejsze modele działają wolniej. Aby rzetelnie ocenić jakość odpowiedzi bez zafałszowania wyników przez irytację użytkownika długim czasem ładowania, celowo spowalniam szybszy wariant kontrolny."
+
+    **O wielorękim bandycie:** "Do szybkich iteracji na promptach stosuje się algorytmy Multi-Armed Bandits, które automatycznie przekierowują ruch do lepiej działającej wersji, minimalizując straty biznesowe."
+
 ---
 
 ## Scenariusz 10.2 — jakość, ryzyka i bezpieczeństwo generatywnej AI
@@ -109,3 +124,16 @@ Trudniejsze niż w klasycznym oprogramowaniu — z uwagi na **niedeterministyczn
 - Techniki **objaśnialnego AI (XAI):**
   - analiza **osadzeń (embeddings)**
   - testowanie za pomocą **promptów kontrfaktycznych** — zrozumienie procesu decyzyjnego modelu
+
+!!! quote "Jak to powiedzieć egzaminatorowi"
+    **O halucynacjach — wykrywanie:** "Stosuję zautomatyzowane techniki, np. SelfCheckGPT, do mierzenia częstotliwości zmyślonych twierdzeń poprzez badanie spójności wielu generowanych odpowiedzi."
+
+    **O halucynacjach — ograniczanie:** "Stosuję wbudowane techniki fact-checkingu weryfikujące dokładność i prawdomówność informacji, zwłaszcza z wielu źródeł. Pomaga też ugruntowanie modelu na zaufanych danych bazowych, np. poprzez Retrieval-Augmented Generation, czyli RAG."
+
+    **O uprzedzeniach — wykrywanie:** "Stosuję odpowiednie benchmarki — Bias Benchmark Questions, Winogender Schemas — oraz oceny sprawiedliwości (fairness assessments), mierzące wydajność systemu w przekroju różnych grup demograficznych."
+
+    **O uprzedzeniach — ograniczanie:** "Przeglądam i ewaluuję źródła danych treningowych pod kątem ich reprezentatywności i balansu. Ważne jest też kontrolowanie proporcji danych syntetycznych do rzeczywistych, aby uniknąć homogenizacji i zjawiska zapaści modelu — model collapse."
+
+    **O błędach rozumowania — wykrywanie:** "Przeprowadzam zaawansowane, symulowane ataki — GAI red-teaming, adversarial role-playing oraz chaos testing — aby zidentyfikować ukryte i nietypowe tryby awarii."
+
+    **O błędach rozumowania — ograniczanie:** "Wdrażam nadzór ludzki (Human-in-the-Loop) oraz eksperckie weryfikacje. Pomaga również stosowanie technik objaśnialnego AI — XAI — takich jak analiza osadzeń (embeddings) czy testowanie za pomocą promptów kontrfaktycznych, by lepiej zrozumieć proces decyzyjny modelu."

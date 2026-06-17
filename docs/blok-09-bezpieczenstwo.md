@@ -42,6 +42,13 @@ Poziom ryzyka = Prawdopodobieństwo ataku × Wpływ (skutek)
 
 Na podstawie równania i stworzonej macierzy przypisujesz zagrożenia do kategorii: **Low / Medium / High / Critical**.
 
+!!! quote "Jak to powiedzieć egzaminatorowi"
+    **O aktywach:** "Wskazuję z systemu aktywa cyfrowe — np. dane osobowe klientów, fizyczne — np. serwery, a także niematerialne, jak wizerunek marki i zaufanie. Ich wycenę opieram na utraconych przyszłych przychodach, koszcie odtworzenia, wartości dla konkurencji oraz potencjalnych karach finansowych — np. za złamanie przepisów RODO."
+
+    **O STRIDE:** "Stosuję metodykę STRIDE. Szukam luk w sześciu kategoriach. Spoofing — podszywanie się pod innego użytkownika. Tampering — nieuprawniona modyfikacja danych, np. kwoty przelewu. Repudiation — zaprzeczalność, brak dowodów że użytkownik wykonał daną akcję. Information Disclosure — wyciek poufnych informacji. Denial of Service — odmowa usługi, np. przez atak DDoS. Elevation of Privilege — nieuprawnione podniesienie uprawnień do poziomu administratora."
+
+    **O szacowaniu:** "Ostateczny poziom ryzyka obliczam jako iloczyn prawdopodobieństwa ataku i jego wpływu. Na podstawie tego równania i stworzonej macierzy przypisuję zidentyfikowane zagrożenia do odpowiednich kategorii — Low, Medium, High lub Critical."
+
 ---
 
 ## Scenariusz 9.2 — podatności i testy bezpieczeństwa
@@ -92,6 +99,17 @@ Priorytet = Prawdopodobieństwo × Wpływ na biznes
 
 - **Zapytania sparametryzowane** po stronie serwera
 - Ścisła **walidacja i sanityzacja** danych wejściowych
+
+!!! quote "Jak to powiedzieć egzaminatorowi"
+    **O SQL Injection:** "Testuję pola wejściowe formularzy, wstrzykując fragmenty zapytań SQL — np. z użyciem poleceń UNION SELECT — aby zweryfikować, czy system zwróci nieuprawnione dane ze struktury bazy."
+
+    **O XSS:** "Wprowadzam złośliwy kod JavaScript — np. tag script z funkcją alert — w pola wejściowe i sprawdzam, czy aplikacja wykona go w przeglądarkach innych użytkowników, co mogłoby skutkować np. kradzieżą plików cookie."
+
+    **O brute-force:** "Planuję ataki siłowe przy użyciu słowników z popularnymi hasłami, badając zachowanie aplikacji — np. brak blokady po serii błędnych prób lub zróżnicowany czas odpowiedzi serwera ułatwiający zgadywanie loginów."
+
+    **O priorytetach:** "Priorytety testów i napraw wyznaczam za pomocą macierzy ryzyka — prawdopodobieństwo razy wpływ na biznes. Podatności takie jak SQLi czy XSS niemal zawsze otrzymują priorytet Krytyczny lub Wysoki, ponieważ umożliwiają masowy wyciek danych lub przejęcie kontroli."
+
+    **O strukturze raportu:** "W opisie wskazuję brak walidacji i bezpośrednie przekazywanie danych wpisanych przez użytkownika do bazy w module logowania, podaję dokładne kroki do reprodukcji i miejsce w aplikacji. W sekcji wpływu mówię o całkowitej kompromitacji zasobów cyfrowych — atakujący może zrzucić całą strukturę bazy danych i wyciągnąć poufne dane klientów. W rekomendacji proponuję zastosowanie zapytań sparametryzowanych po stronie serwera oraz ścisłą walidację i sanityzację danych wejściowych."
 
 ---
 

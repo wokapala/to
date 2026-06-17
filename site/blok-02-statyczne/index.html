@@ -883,6 +883,14 @@
 <p class="admonition-title">Note</p>
 <p>Dokumenty niesformalizowane lub trudne do zinterpretowania według jasnych reguł słabo nadają się do analizy statycznej.</p>
 </div>
+<div class="admonition quote">
+<p class="admonition-title">Jak to powiedzieć egzaminatorowi</p>
+<p><strong>O przeglądzie nieformalnym/przejrzeniu:</strong> "Wybieram dla niskiej krytyczności — daje szybki feedback, generowanie pomysłów i sprawdzanie alternatyw. Przejrzenie jest prowadzone przez samego autora i nie wymaga ścisłej formalizacji."</p>
+<p><strong>O przeglądzie technicznym:</strong> "Celem jest osiągnięcie konsensusu technicznego i wykrycie defektów przez ekspertów o odpowiednich kwalifikacjach. Często tworzy się z niego raport."</p>
+<p><strong>O inspekcji:</strong> "To najbardziej formalny proces, oparty o twarde zasady i listy kontrolne. Wymagany dla systemów, gdzie błąd kosztuje najwięcej — finansowych, medycznych, architektury bezpieczeństwa."</p>
+<p><strong>O rolach w inspekcji:</strong> "W formalnej inspekcji autor nie może pełnić roli lidera ani protokolanta, aby zachować obiektywizm. Moderator najlepiej, gdy jest osobą niezależną, nieznającą domeny, by unikać stronniczości."</p>
+<p><strong>O artefaktach do analizy statycznej:</strong> "Analizie statycznej można poddać wszystko, co posiada sformalizowaną strukturę i składnię oraz da się przeczytać — kod źródłowy, modele architektury, dokumentację specyfikacji, historyjki użytkownika z DoD i DoR, skrypty testowe i pliki konfiguracyjne."</p>
+</div>
 <hr />
 <h2 id="scenariusz-22-wczesna-informacja-zwrotna-i-bramki-jakosci">Scenariusz 2.2 — wczesna informacja zwrotna i bramki jakości<a class="headerlink" href="#scenariusz-22-wczesna-informacja-zwrotna-i-bramki-jakosci" title="Permanent link">&para;</a></h2>
 <blockquote>
@@ -918,6 +926,13 @@
 <li><strong>Cel:</strong> pewność, że praca jest gotowa dla klienta lub do wdrożenia</li>
 <li><strong>Przykład:</strong> kod przeszedł Code Review, napisano testy jednostkowe (z określonym pokryciem), testy automatyczne na stagingu świecą się na zielono, zaktualizowano dokumentację</li>
 </ul>
+<div class="admonition quote">
+<p class="admonition-title">Jak to powiedzieć egzaminatorowi</p>
+<p><strong>O testowaniu statycznym:</strong> "Badam artefakty bez uruchamiania kodu — przeglądy wymagań, architektury, statyczna analiza kodu. Wykrywa defekty bezpośrednio — wskazuje konkretny problem w dokumencie lub kodzie, zanim w ogóle powstanie działająca aplikacja. Jest tańsze i daje znacznie szybszą informację zwrotną — tak zwany shift-left. Naprawa błędnego wymagania na papierze kosztuje ułamek tego, co naprawa gotowego systemu."</p>
+<p><strong>O ograniczeniach:</strong> "Nie wykryje awarii w środowisku uruchomieniowym. Ponieważ kod nie jest uruchamiany, nie złapię błędów, które ujawniają się dopiero w boju — problemów z wydajnością pod rzeczywistym obciążeniem, wycieków pamięci z upływem czasu, zakleszczeń czy problemów z integracją zewnętrznych bibliotek."</p>
+<p><strong>O DoR:</strong> "Definition of Ready to lista warunków — bramka wejściowa — które muszą być spełnione, zanim zespół w ogóle rozpocznie pracę nad zadaniem. Ma zapobiegać przepalaniu czasu na szukanie brakujących informacji. Na przykład: historyjka ma jasno opisany cel biznesowy, dołączone są makiety, określono kryteria akceptacyjne, rozwiązano wszystkie zależności od innych zespołów."</p>
+<p><strong>O DoD:</strong> "Definition of Done to uniwersalny standard jakości — bramka wyjściowa — który musi zostać spełniony, aby uznać zadanie za w pełni zakończone. Daje pewność, że praca jest gotowa dla klienta lub do wdrożenia."</p>
+</div>
 
 
 

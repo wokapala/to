@@ -1018,6 +1018,14 @@
 </blockquote>
 <p>Zawsze podawaj własne uzasadnienie decyzji.</p>
 </div>
+<div class="admonition quote">
+<p class="admonition-title">Jak to powiedzieć egzaminatorowi</p>
+<p><strong>O kontekstowości:</strong> "Zgodnie z zasadą, że testowanie jest zależne od kontekstu, do każdego projektu należy podejść zupełnie inaczej."</p>
+<p><strong>O MVP:</strong> "Głównym celem startupu w fazie MVP jest szybkie dostarczenie wartości na rynek, budowanie zaufania pierwszych użytkowników oraz zwalidowanie, czy produkt w ogóle odpowiada na rzeczywiste potrzeby. Stawia się tu na szybkość kosztem pełnego pokrycia testami — testowanie gruntowne wręcz blokowałoby rozwój biznesu. Weryfikuje się głównie happy paths, dopuszcza się testy A/B na produkcji albo wdrożenie nowej funkcji feature flagiem dla 5% ruchu."</p>
+<p><strong>O systemie medycznym:</strong> "W systemach medycznych priorytetem jest bezpieczeństwo pacjentów i niezawodność, a nadrzędnym celem testowania staje się zgodność z rygorystycznymi regulacjami prawnymi. Bardzo duży nacisk kładzie się na wczesne testowanie statyczne — weryfikację specyfikacji i analizę architektury, jeszcze zanim powstanie kod. Wymagana jest ścisła identyfikowalność przez macierze śledzenia, aby udowodnić audytorom, że każde wymaganie prawne zostało pokryte testami."</p>
+<p><strong>O paradoksie pestycydów:</strong> "Kod, oprogramowanie, a także sami deweloperzy z czasem uodparniają się na te same, wielokrotnie powtarzane testy. Jeśli zestaw testów nie ewoluuje, przestanie w końcu wykrywać nowe defekty wprowadzane przy okazji rozwoju systemu. Dobrym krokiem będzie przeprowadzenie sesji testowania eksploracyjnego w wykonaniu doświadczonego testera."</p>
+<p><strong>O klastrowaniu:</strong> "Defekty nie rozkładają się równomiernie. Najczęściej skupiają się w niewielkiej liczbie miejsc, np. tam, gdzie występuje bardzo złożona logika biznesowa, nagromadzenie długu technologicznego lub tam, gdzie nanoszono najwięcej poprawek. Zamiast w nieskończoność doklejać nowe testy, tester może zarekomendować zespołowi programistycznemu dogłębną analizę metodą 5 × Dlaczego oraz refaktoryzację problematycznego kodu."</p>
+</div>
 <hr />
 <h2 id="scenariusz-12-proces-testowy-identyfikowalnosc-i-niezaleznosc">Scenariusz 1.2 — proces testowy, identyfikowalność i niezależność<a class="headerlink" href="#scenariusz-12-proces-testowy-identyfikowalnosc-i-niezaleznosc" title="Permanent link">&para;</a></h2>
 <blockquote>
@@ -1077,6 +1085,15 @@
 </tr>
 </tbody>
 </table>
+<div class="admonition quote">
+<p class="admonition-title">Jak to powiedzieć egzaminatorowi</p>
+<p><strong>O warunkach vs przypadkach:</strong> "Z wymagań wyodrębniam ogólne warunki testowe — określam <em>co</em> należy przetestować. Potem przekształcam warunki w szczegółowe przypadki testowe — określam <em>jak</em> będę testować, czyli definiuję kroki, dane wejściowe i oczekiwany rezultat."</p>
+<p><strong>O identyfikowalności:</strong> "Identyfikowalność służy do udowodnienia biznesowi stopnia pokrycia wymagań, pozwala na szybką analizę wpływu przy zmianach w kodzie oraz ułatwia ocenę ryzyka i raportowanie."</p>
+<p><strong>O autorze kodu jako testerze:</strong> "Daje dobrą znajomość kodu i szybkość, ale niesie ogromne ryzyko błędów poznawczych — confirmation bias. Programista nieświadomie testuje tak, żeby potwierdzić, że jego kod działa."</p>
+<p><strong>O testerze w zespole:</strong> "To standard w zwinnym wytwarzaniu oprogramowania. Daje dobrą wiedzę domenową i szybką komunikację, ale jest ryzyko ulegania wpływom deweloperów z tego samego zespołu."</p>
+<p><strong>O dedykowanym QA:</strong> "Wysoka obiektywność i specjalizacja, ale tworzy silosy organizacyjne, co wydłuża komunikację i powoduje rzucanie zadaniami przez płot."</p>
+<p><strong>O zewnętrznym laboratorium:</strong> "Wybieram, gdy mamy system silnie regulowany prawnie — np. medyczny, bankowy, wojskowy. Najwyższy obiektywizm, ale bardzo wysoki koszt i długi czas."</p>
+</div>
 <hr />
 <h2 id="scenariusz-13-ancuch-pomyka-defekt-i-raport-defektu">Scenariusz 1.3 — łańcuch pomyłka → defekt i raport defektu<a class="headerlink" href="#scenariusz-13-ancuch-pomyka-defekt-i-raport-defektu" title="Permanent link">&para;</a></h2>
 <blockquote>
@@ -1106,6 +1123,12 @@
 <li>kultura zgłaszania błędów musi być <strong>blameless</strong> (bez obwiniania)</li>
 </ul>
 <p><strong>Wartość dodana:</strong> uzupełnij raport o dodatkowe logi, zrzuty ekranu, propozycję <strong>workaroundu</strong>.</p>
+<div class="admonition quote">
+<p class="admonition-title">Jak to powiedzieć egzaminatorowi</p>
+<p><strong>O łańcuchu przyczynowym:</strong> "Awaria to skutek, czyli to, co bezpośrednio widzi użytkownik lub tester w działającym systemie — np. aplikacja się zawiesza albo podaje błędny wynik. Defekt to wada — to, co fizycznie jest zepsute w kodzie, konfiguracji lub architekturze, np. brak obsługi pustego pola, literówka w zapytaniu do bazy. Pomyłka to czynnik ludzki — przyczyna wprowadzenia wady przez człowieka: presja czasu, zmęczenie, zła komunikacja, błędne zrozumienie wymagań."</p>
+<p><strong>O 5 × Dlaczego:</strong> "To prosta metoda polegająca na kilkukrotnym, zazwyczaj pięciokrotnym zadaniu pytania <em>dlaczego?</em>, aby dotrzeć do najgłębszego źródła problemu. Jej celem jest zidentyfikowanie prawdziwej luki w procesie — np. braku odpowiednich procedur szkoleniowych — a nie tylko zatrzymanie się na powierzchownym błędzie ludzkim. Celem analizy jest znalezienie luki w procesie, a nie szukanie winnego człowieka."</p>
+<p><strong>O konstruktywności raportu:</strong> "Tester to posłaniec złych wieści i musi zachować obiektywizm, skupiając się wyłącznie na faktach. Kultura zgłaszania błędów musi być blameless — bez obwiniania. Krytykuję raport, jeśli zawiera ataki personalne lub emocjonalny ton."</p>
+</div>
 
 
 

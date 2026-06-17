@@ -884,6 +884,13 @@ Brokera <strong>nie należy mylić z formatami serializacji danych</strong> typu
 <li>Broker zna wersje aplikacji obu stron na każdym środowisku</li>
 <li>Działa jak <strong>sędzia</strong> pilnujący, czy nowe wersje serwisów nie łamią ustalonych umów</li>
 </ul>
+<div class="admonition quote">
+<p class="admonition-title">Jak to powiedzieć egzaminatorowi</p>
+<p><strong>O kontrakcie konsumenta:</strong> "Konsument definiuje w swoich testach jednostkowych, jakich konkretnie danych wymaga, nie testując logiki biznesowej dostawcy. Test konsumenta określa: <em>wysyłając żądanie o zamówienie, oczekuję odpowiedzi ze statusem HTTP 200 oraz pola status w formacie tekstowym</em>. Z tego testu generowany jest plik kontraktu, który trafia do brokera."</p>
+<p><strong>O weryfikacji dostawcy:</strong> "Dostawca pobiera opublikowany kontrakt od brokera w ramach swojego potoku CI/CD. Serwer dostawcy automatycznie uruchamia pobrane testy przeciwko swojemu własnemu API. Sprawdza w izolacji, czy jego aktualne odpowiedzi są w 100% zgodne z oczekiwaniami zapisanymi w kontrakcie przez konsumenta."</p>
+<p><strong>O bramce zgodności:</strong> "W potoku CI/CD uruchamiany jest skrypt <em>Can I deploy?</em>. Zanim nowa wersja zostanie wdrożona na środowisko docelowe, broker sprawdza, czy aktualnie wdrożona wersja dostawcy spełnia jej kontrakt. Jeśli programista zmienił nazwę kluczowego pola, łamiąc umowę, bramka natychmiast blokuje wdrożenie, zapobiegając awarii na produkcji."</p>
+<p><strong>O brokerze:</strong> "Broker to scentralizowane repozytorium, w którym przechowywane i weryfikowane są kontrakty w ramach potoku CI/CD. Nie należy go mylić z formatami serializacji danych takimi jak Protobuf. Broker zna wersje aplikacji obu stron na każdym środowisku i działa jak sędzia, który pilnuje, czy nowe wersje serwisów nie łamią ustalonych umów."</p>
+</div>
 <hr />
 <h2 id="scenariusz-82-kontrakty-a-e2e-i-ewolucja-kontraktu">Scenariusz 8.2 — kontrakty a E2E i ewolucja kontraktu<a class="headerlink" href="#scenariusz-82-kontrakty-a-e2e-i-ewolucja-kontraktu" title="Permanent link">&para;</a></h2>
 <blockquote>
@@ -939,6 +946,14 @@ Brokera <strong>nie należy mylić z formatami serializacji danych</strong> typu
 <li>Gdy tylko to nastąpi — <strong>natychmiast usuwasz starą wersję API</strong></li>
 <li>Nie wspierasz jej w nieskończoność — generuje koszty i dług technologiczny</li>
 </ul>
+<div class="admonition quote">
+<p class="admonition-title">Jak to powiedzieć egzaminatorowi</p>
+<p><strong>O kontraktach vs E2E:</strong> "Testy kontraktowe to lekarstwo na bolączki testów End-to-End. Testy E2E są drogie w utrzymaniu, wolne i często niestabilne ze względu na zależność od całego środowiska i zewnętrznych usług. Testy kontraktowe uruchamiają się tak szybko jak jednostkowe i działają w izolacji, co gwarantuje ich taniość i wysoką stabilność."</p>
+<p><strong>O szybkości feedbacku:</strong> "Kontrakty dają natychmiastowy feedback w potoku CI/CD — np. blokują wdrożenie psujące integrację. Na wyniki E2E trzeba czekać, co blokuje i opóźnia proces wydawniczy."</p>
+<p><strong>O zastępowaniu vs uzupełnianiu:</strong> "Kontrakty powinny zastąpić testy E2E w szczegółowym weryfikowaniu komunikacji między poszczególnymi mikroserwisami. Testy E2E z kolei je uzupełniają — zostawiam ich niewiele, tylko do weryfikacji głównych, krytycznych ścieżek całego systemu na produkcyjnym lub zbliżonym środowisku."</p>
+<p><strong>O ewolucji API:</strong> "Kiedy modyfikuję API, zachowuję kompatybilność wsteczną. Wdrażam nową wersję API obok starej, aby nie złamać działających kontraktów innych zespołów."</p>
+<p><strong>O wygaszaniu:</strong> "Czekam, aż wszyscy konsumenci zaktualizują swoje aplikacje i zaczną korzystać z nowej wersji kontraktu. Gdy tylko to nastąpi, natychmiast usuwam starą wersję API, aby nie wspierać jej w nieskończoność i nie generować kosztów."</p>
+</div>
 
 
 

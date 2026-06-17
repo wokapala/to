@@ -923,6 +923,13 @@
 <li>stałe monitorowanie metryk sprzętowych (RAM, CPU) — narzędzia typu <strong>Grafana</strong></li>
 <li>jeśli mimo stałego ruchu zużycie pamięci nieustannie rośnie i nie jest czyszczone → <strong>wyciek pamięci (memory leak)</strong>, który spowodowałby awarię na produkcji</li>
 </ul>
+<div class="admonition quote">
+<p class="admonition-title">Jak to powiedzieć egzaminatorowi</p>
+<p><strong>O testach obciążeniowych:</strong> "Symuluję normalny, przewidywany wysoki ruch — np. podczas standardowego dnia przedsprzedaży biletów. Sprawdzam, czy system działa stabilnie, a czasy odpowiedzi mieszczą się w normie. Ważne, aby mierzyć nie tylko średnią, ale przede wszystkim percentyle — np. czas odpowiedzi dla 99% najwolniejszych żądań."</p>
+<p><strong>O testach stresowych:</strong> "Stopniowo zwiększam ruch schodkami daleko poza przewidywane limity, aż do momentu całkowitej awarii systemu. Wyznaczam maksymalną pojemność serwera. Sprawdzam też, w jaki sposób system umiera — czy z gracją, wyświetlając przyjazny komunikat o błędzie, czy rzuca użytkownikom surowe błędy lub całkowicie zamarza."</p>
+<p><strong>O testach skokowych:</strong> "Symuluję nagłe uderzenie potężnego obciążenia w jednej chwili — np. równo o 12:00, gdy startuje główna pula biletów. Sprawdzam, czy system potrafi obsłużyć nagłą bombę ruchu i czy odpowiednio opóźnia lub kolejkuje żądania, zamiast je gubić lub odrzucać."</p>
+<p><strong>O testach wytrzymałościowych:</strong> "System biegnie maraton — generuję ciągły, umiarkowany lub wysoki ruch i utrzymuję go przez bardzo długi czas, np. wiele godzin lub dni. Stale monitoruję metryki sprzętowe — zużycie RAM i CPU — przy pomocy narzędzi typu Grafana. Jeśli mimo stałego ruchu zużycie pamięci nieustannie rośnie i nie jest czyszczone, zidentyfikowałem wyciek pamięci, który z czasem spowodowałby awarię aplikacji na produkcji."</p>
+</div>
 <hr />
 <h2 id="scenariusz-72-cele-i-metryki-wydajnosci">Scenariusz 7.2 — cele i metryki wydajności<a class="headerlink" href="#scenariusz-72-cele-i-metryki-wydajnosci" title="Permanent link">&para;</a></h2>
 <blockquote>
@@ -987,6 +994,14 @@
 <li>Dopóki masz zapas → możesz ryzykować szybkie wdrożenia</li>
 <li>Po wyczerpaniu budżetu (zbyt duża awaryjność) → <strong>wstrzymujesz wydawanie nowych funkcji</strong> i cały zespół zajmuje się stabilizacją i naprawą długu technologicznego, by nie złamać SLA</li>
 </ul>
+<div class="admonition quote">
+<p class="admonition-title">Jak to powiedzieć egzaminatorowi</p>
+<p><strong>O SLI, SLO, SLA:</strong> "SLI to Service Level Indicator — konkretna, mierzalna wartość z działającego systemu, np. rzeczywisty czas odpowiedzi serwera lub dostępność usługi. SLO to Service Level Objective — nasz wewnętrzny, założony cel dla wskaźnika SLI, np. że 99% zapytań zostanie obsłużonych w czasie poniżej 200 milisekund. SLA to Service Level Agreement — zewnętrzny, formalny kontrakt z klientem, określający najczęściej kary finansowe za niedotrzymanie poziomu usług."</p>
+<p><strong>O SLA = 100%:</strong> "Prowadzący bardzo mocno podkreślał, że SLA nigdy nie może wynosić 100%, ponieważ nieuniknione są awarie poza naszą kontrolą. Nawet najwięksi dostawcy chmur dają np. 99,95%."</p>
+<p><strong>O średniej:</strong> "Najważniejsza zasada z wykładów — średnia kłamie. Średni czas odpowiedzi ukrywa to, że część klientów może doświadczać ogromnych opóźnień. Zamiast średniej używam percentyli — p90, p95, p99 — aby sprawdzić zachowanie dla najwolniejszych żądań. Zbieram również informacje o przepustowości i błędach."</p>
+<p><strong>O diagnozie wąskiego gardła:</strong> "Wykorzystuję narzędzia do monitorowania w czasie rzeczywistym — Grafana, Prometheus. Jeśli na wykresie zobaczę, że percentyl dla najwolniejszych żądań — np. top 1% — drastycznie rośnie, np. z 2 do 5 sekund, identyfikuję anomalię. Częstą przyczyną dławienia się są operacje na bazie danych — np. brak odpowiednich indeksów."</p>
+<p><strong>O budżecie błędów:</strong> "Budżet błędów to mój dopuszczalny margines awarii — różnica między 100% a moim SLO. Jeśli SLO dla dostępności wynosi 99%, mój budżet błędów wynosi 1%. Daje zespołowi swobodę we wdrażaniu nowości. Dopóki mamy zapas w budżecie, możemy ryzykować szybkie wdrożenia. Jeśli wyczerpiemy budżet, wstrzymujemy wydawanie nowych funkcji i cały zespół zajmuje się wyłącznie stabilizacją i naprawą długu technologicznego, aby nie złamać SLA."</p>
+</div>
 
 
 

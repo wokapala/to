@@ -1,0 +1,1114 @@
+
+<!doctype html>
+<html lang="pl" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Notatki do egzaminu">
+      
+      
+      
+      
+        <link rel="prev" href="../blok-08-kontraktowe/">
+      
+      
+        <link rel="next" href="../blok-10-genai/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Blok 9 - Bezpieczeństwo i RODO - Notatki - Testowanie Oprogramowania</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#blok-9-ryzyka-bezpieczenstwa-i-rodo" class="md-skip">
+          Przejdź do treści
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Nagłówek">
+    <a href=".." title="Notatki - Testowanie Oprogramowania" class="md-header__button md-logo" aria-label="Notatki - Testowanie Oprogramowania" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Notatki - Testowanie Oprogramowania
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Blok 9 - Bezpieczeństwo i RODO
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Tryb ciemny"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Tryb ciemny" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Tryb jasny"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Tryb jasny" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Szukaj" placeholder="Szukaj" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Szukaj">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Udostępnij" aria-label="Udostępnij" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Wyczyść" aria-label="Wyczyść" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicjowanie wyszukiwania
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Nawigacja" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Notatki - Testowanie Oprogramowania" class="md-nav__button md-logo" aria-label="Notatki - Testowanie Oprogramowania" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Notatki - Testowanie Oprogramowania
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kryteria-oceny/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Kryteria oceny
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../blok-01-podstawy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Blok 1 - Podstawy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../blok-02-statyczne/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Blok 2 - Statyczne
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../blok-03-cykl-zycia/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Blok 3 - Cykl życia
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../blok-04-analiza-projektowanie/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Blok 4 - Analiza i projektowanie
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../blok-05-zarzadzanie/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Blok 5 - Zarządzanie
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../blok-06-jednostkowe-integracyjne/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Blok 6 - Jednostkowe i integracyjne
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../blok-07-wydajnosciowe/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Blok 7 - Wydajnościowe
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../blok-08-kontraktowe/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Blok 8 - Kontraktowe
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Blok 9 - Bezpieczeństwo i RODO
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Blok 9 - Bezpieczeństwo i RODO
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Spis treści">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Spis treści
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#scenariusz-91-modelowanie-zagrozen-i-ryzyko-bezpieczenstwa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenariusz 9.1 — modelowanie zagrożeń i ryzyko bezpieczeństwa
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Scenariusz 9.1 — modelowanie zagrożeń i ryzyko bezpieczeństwa">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-identyfikacja-i-wycena-aktywow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Identyfikacja i wycena aktywów
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-modelowanie-zagrozen-metoda-stride" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Modelowanie zagrożeń — metoda STRIDE
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-szacowanie-ryzyka" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Szacowanie ryzyka
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scenariusz-92-podatnosci-i-testy-bezpieczenstwa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenariusz 9.2 — podatności i testy bezpieczeństwa
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Scenariusz 9.2 — podatności i testy bezpieczeństwa">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-plan-testow-podatnosci" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Plan testów podatności
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-ustalenie-priorytetow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Ustalenie priorytetów
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-struktura-raportu-na-przykadzie-sqli" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Struktura raportu (na przykładzie SQLi)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-pena-lista-owasp-top-10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Pełna lista OWASP Top 10
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../blok-10-genai/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Blok 10 - Generatywna AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Spis treści">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Spis treści
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#scenariusz-91-modelowanie-zagrozen-i-ryzyko-bezpieczenstwa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenariusz 9.1 — modelowanie zagrożeń i ryzyko bezpieczeństwa
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Scenariusz 9.1 — modelowanie zagrożeń i ryzyko bezpieczeństwa">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-identyfikacja-i-wycena-aktywow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Identyfikacja i wycena aktywów
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-modelowanie-zagrozen-metoda-stride" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Modelowanie zagrożeń — metoda STRIDE
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-szacowanie-ryzyka" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Szacowanie ryzyka
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scenariusz-92-podatnosci-i-testy-bezpieczenstwa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenariusz 9.2 — podatności i testy bezpieczeństwa
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Scenariusz 9.2 — podatności i testy bezpieczeństwa">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-plan-testow-podatnosci" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Plan testów podatności
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-ustalenie-priorytetow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Ustalenie priorytetów
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-struktura-raportu-na-przykadzie-sqli" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Struktura raportu (na przykładzie SQLi)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-pena-lista-owasp-top-10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Pełna lista OWASP Top 10
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="blok-9-ryzyka-bezpieczenstwa-i-rodo">Blok 9 — Ryzyka bezpieczeństwa i RODO<a class="headerlink" href="#blok-9-ryzyka-bezpieczenstwa-i-rodo" title="Permanent link">&para;</a></h1>
+<h2 id="scenariusz-91-modelowanie-zagrozen-i-ryzyko-bezpieczenstwa">Scenariusz 9.1 — modelowanie zagrożeń i ryzyko bezpieczeństwa<a class="headerlink" href="#scenariusz-91-modelowanie-zagrozen-i-ryzyko-bezpieczenstwa" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>Dla aplikacji zidentyfikuj i wyceń aktywa, przeprowadź modelowanie zagrożeń i oszacuj ryzyko.</p>
+</blockquote>
+<h3 id="1-identyfikacja-i-wycena-aktywow">1. Identyfikacja i wycena aktywów<a class="headerlink" href="#1-identyfikacja-i-wycena-aktywow" title="Permanent link">&para;</a></h3>
+<p><strong>Typy aktywów:</strong></p>
+<ul>
+<li><strong>Cyfrowe</strong> — dane osobowe klientów</li>
+<li><strong>Fizyczne</strong> — serwery</li>
+<li><strong>Niematerialne</strong> — wizerunek marki, zaufanie</li>
+</ul>
+<p><strong>Wycena oparta na:</strong></p>
+<ul>
+<li>utraconych przyszłych przychodach</li>
+<li>koszcie odtworzenia</li>
+<li>wartości dla konkurencji</li>
+<li><strong>potencjalnych karach finansowych</strong> (np. za złamanie RODO)</li>
+</ul>
+<h3 id="2-modelowanie-zagrozen-metoda-stride">2. Modelowanie zagrożeń — metoda STRIDE<a class="headerlink" href="#2-modelowanie-zagrozen-metoda-stride" title="Permanent link">&para;</a></h3>
+<p>Szukasz luk w <strong>sześciu kategoriach</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Litera</th>
+<th>Pełna nazwa</th>
+<th>Co to</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>S</strong></td>
+<td><strong>Spoofing</strong></td>
+<td>Podszywanie się pod innego użytkownika</td>
+</tr>
+<tr>
+<td><strong>T</strong></td>
+<td><strong>Tampering</strong></td>
+<td>Nieuprawniona modyfikacja danych (np. kwoty przelewu)</td>
+</tr>
+<tr>
+<td><strong>R</strong></td>
+<td><strong>Repudiation</strong></td>
+<td>Zaprzeczalność — brak dowodów, że użytkownik wykonał akcję</td>
+</tr>
+<tr>
+<td><strong>I</strong></td>
+<td><strong>Information Disclosure</strong></td>
+<td>Wyciek poufnych informacji</td>
+</tr>
+<tr>
+<td><strong>D</strong></td>
+<td><strong>Denial of Service</strong></td>
+<td>Odmowa usługi (np. atak DDoS)</td>
+</tr>
+<tr>
+<td><strong>E</strong></td>
+<td><strong>Elevation of Privilege</strong></td>
+<td>Nieuprawnione podniesienie uprawnień do poziomu administratora</td>
+</tr>
+</tbody>
+</table>
+<h3 id="3-szacowanie-ryzyka">3. Szacowanie ryzyka<a class="headerlink" href="#3-szacowanie-ryzyka" title="Permanent link">&para;</a></h3>
+<p><strong>Wzór:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Poziom ryzyka = Prawdopodobieństwo ataku × Wpływ (skutek)
+</code></pre></div>
+<p>Na podstawie równania i stworzonej macierzy przypisujesz zagrożenia do kategorii: <strong>Low / Medium / High / Critical</strong>.</p>
+<hr />
+<h2 id="scenariusz-92-podatnosci-i-testy-bezpieczenstwa">Scenariusz 9.2 — podatności i testy bezpieczeństwa<a class="headerlink" href="#scenariusz-92-podatnosci-i-testy-bezpieczenstwa" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>Dla aplikacji internetowej zaplanuj testy wybranych kategorii podatności z OWASP Top 10 (m.in. wstrzyknięcie SQL), ustal priorytety i przygotuj raport zawierający między innymi opis, wpływ i rekomendację.</p>
+</blockquote>
+<h3 id="1-plan-testow-podatnosci">1. Plan testów podatności<a class="headerlink" href="#1-plan-testow-podatnosci" title="Permanent link">&para;</a></h3>
+<p><strong>SQL Injection</strong></p>
+<ul>
+<li>Testuj pola wejściowe formularzy, wstrzykując fragmenty zapytań SQL (np. z <code>UNION SELECT</code>)</li>
+<li>Cel: czy system zwróci <strong>nieuprawnione dane</strong> ze struktury bazy</li>
+</ul>
+<p><strong>Cross-Site Scripting (XSS)</strong></p>
+<ul>
+<li>Wprowadź złośliwy kod JavaScript (np. <code>&lt;script&gt;alert(1)&lt;/script&gt;</code>) w pola wejściowe</li>
+<li>Cel: czy aplikacja wykona go w przeglądarkach innych użytkowników (np. <strong>kradzież cookies</strong>)</li>
+</ul>
+<p><strong>Podatności uwierzytelniania</strong></p>
+<ul>
+<li>Ataki <strong>brute-force</strong> z słownikami popularnych haseł</li>
+<li>Badaj zachowanie: brak blokady po serii błędnych prób, zróżnicowany czas odpowiedzi serwera (ułatwia zgadywanie loginów)</li>
+</ul>
+<h3 id="2-ustalenie-priorytetow">2. Ustalenie priorytetów<a class="headerlink" href="#2-ustalenie-priorytetow" title="Permanent link">&para;</a></h3>
+<p><strong>Macierz ryzyka:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Priorytet = Prawdopodobieństwo × Wpływ na biznes
+</code></pre></div>
+<ul>
+<li><strong>SQLi, XSS</strong> → niemal zawsze <strong>Critical</strong> lub <strong>High</strong> — umożliwiają masowy wyciek danych / przejęcie kontroli</li>
+</ul>
+<h3 id="3-struktura-raportu-na-przykadzie-sqli">3. Struktura raportu (na przykładzie SQLi)<a class="headerlink" href="#3-struktura-raportu-na-przykadzie-sqli" title="Permanent link">&para;</a></h3>
+<p><strong>Opis</strong></p>
+<ul>
+<li>Brak walidacji i bezpośrednie przekazywanie danych użytkownika do bazy w module logowania</li>
+<li>Dokładne kroki do reprodukcji i miejsce w aplikacji</li>
+</ul>
+<p><strong>Wpływ</strong></p>
+<ul>
+<li>Całkowita kompromitacja zasobów cyfrowych</li>
+<li>Atakujący może zrzucić całą strukturę bazy i wyciągnąć dane klientów</li>
+<li>Konsekwencje dla biznesu i użytkownika</li>
+</ul>
+<p><strong>Rekomendacja</strong></p>
+<ul>
+<li><strong>Zapytania sparametryzowane</strong> po stronie serwera</li>
+<li>Ścisła <strong>walidacja i sanityzacja</strong> danych wejściowych</li>
+</ul>
+<hr />
+<h2 id="4-pena-lista-owasp-top-10">4. Pełna lista OWASP Top 10<a class="headerlink" href="#4-pena-lista-owasp-top-10" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Kod</th>
+<th>Nazwa</th>
+<th>Co testować</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>A01</strong></td>
+<td><strong>Broken Access Control</strong> (brak kontroli dostępu)</td>
+<td>Próba dostępu do funkcji administratora ze zwykłego konta, manipulacja parametrami URL w celu wyświetlenia danych innych osób</td>
+</tr>
+<tr>
+<td><strong>A02</strong></td>
+<td><strong>Security Misconfiguration</strong> (błędy konfiguracji)</td>
+<td>Czy system korzysta z domyślnych haseł, czy błędy aplikacji ujawniają zrzuty pamięci (<strong>stack traces</strong>)</td>
+</tr>
+<tr>
+<td><strong>A03</strong></td>
+<td><strong>Software Supply Chain Failures</strong> (awarie łańcucha dostaw)</td>
+<td>Czy zewnętrzne biblioteki są aktualne, wolne od podatności, pobierane z zaufanych źródeł</td>
+</tr>
+<tr>
+<td><strong>A04</strong></td>
+<td><strong>Cryptographic Failures</strong> (błędy kryptograficzne)</td>
+<td>Czy poufne dane przesyłane są w czystym tekście, czy używane są przestarzałe algorytmy szyfrujące</td>
+</tr>
+<tr>
+<td><strong>A05</strong></td>
+<td><strong>Injection</strong> (wstrzyknięcia — SQL, XSS)</td>
+<td>Wprowadzanie złośliwego kodu w polach formularza w celu ominięcia zabezpieczeń i wykonania nieautoryzowanych operacji</td>
+</tr>
+<tr>
+<td><strong>A06</strong></td>
+<td><strong>Insecure Design</strong> (niezabezpieczony projekt)</td>
+<td>Luki w architekturze i logice biznesowej — etap, na którym zapomniano wdrożyć mechanizmy bezpieczeństwa</td>
+</tr>
+<tr>
+<td><strong>A07</strong></td>
+<td><strong>Authentication Failures</strong> (błędy uwierzytelniania)</td>
+<td>Brute-force, prawidłowe wygasanie sesji po wylogowaniu</td>
+</tr>
+<tr>
+<td><strong>A08</strong></td>
+<td><strong>Software or Data Integrity Failures</strong> (błędy integralności)</td>
+<td>Weryfikacja infrastruktury CI/CD, automatycznych aktualizacji pod kątem złośliwego kodu</td>
+</tr>
+<tr>
+<td><strong>A09</strong></td>
+<td><strong>Logging &amp; Alerting Failures</strong> (brak logowania i monitorowania)</td>
+<td>Czy system rejestruje krytyczne zdarzenia (błędne próby logowania) i powiadamia administratorów</td>
+</tr>
+<tr>
+<td><strong>A10</strong></td>
+<td><strong>Mishandling of Exceptional Conditions</strong> (niewłaściwa obsługa wyjątków)</td>
+<td>Jak aplikacja reaguje na nietypowe awarie — czy nie załamuje się i nie ujawnia luk przez błędną obsługę wyjątków</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Lista OWASP Top 10</p>
+<p>Zgodnie z kryteriami oceny — <strong>nie wymaga się pamięciowej znajomości wszystkich pozycji</strong>. Możesz korzystać z notatek lub komputera. Oceniana jest <strong>umiejętność trafnego dobrania i zastosowania</strong> informacji.</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Powrót do góry
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.tracking", "navigation.sections", "navigation.expand", "navigation.top", "navigation.indexes", "search.suggest", "search.highlight", "search.share", "content.code.copy", "toc.follow"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Skopiowano do schowka", "clipboard.copy": "Kopiuj do schowka", "search.result.more.one": "1 wi\u0119cej na tej stronie", "search.result.more.other": "# wi\u0119cej na tej stronie", "search.result.none": "Brak wynik\u00f3w wyszukiwania", "search.result.one": "Wyniki wyszukiwania: 1", "search.result.other": "Wyniki wyszukiwania: #", "search.result.placeholder": "Zacznij pisa\u0107, aby szuka\u0107", "search.result.term.missing": "Brak", "select.version": "Wybierz wersj\u0119"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

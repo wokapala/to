@@ -909,6 +909,16 @@ Wbudowane uprzedzenia (np. <strong>faworyzowanie własnego stylu wypowiedzi</str
 <li>Algorytm <strong>automatycznie przekierowuje ruch</strong> do lepiej działającej wersji</li>
 <li>Minimalizuje straty biznesowe</li>
 </ul>
+<div class="admonition quote">
+<p class="admonition-title">Jak to powiedzieć egzaminatorowi</p>
+<p><strong>O różnicy eval vs A/B:</strong> "Ewaluacje weryfikują kompetencje i możliwości modelu, odpowiadając na pytanie, czy potrafi on wykonać zadanie — np. sprawdzają wierność źródłom i ton. Testy A/B z kolei sprawdzają rzeczywistą wartość dla użytkownika i wpływ na biznes, mierząc zachowania takie jak retencja, konwersja czy wskaźnik odrzuceń na żywym ruchu."</p>
+<p><strong>O Golden Dataset:</strong> "Zestaw ewaluacyjny zwany Golden Dataset musi być reprezentatywny dla środowiska produkcyjnego. Powinien być różnorodny i uwzględniać ścieżki pozytywne, przypadki brzegowe oraz ataki bezpieczeństwa — np. jailbreaki. Zbiór musi być również odkażony — decontaminated — czyli nie może pokrywać się z danymi treningowymi modelu. Służy jako filtr do testów regresyjnych w potoku CI/CD."</p>
+<p><strong>O ewaluatorach:</strong> "To automatyczne sprawdziany oceniające konkretne wskaźniki systemu — stopień halucynacji, zgodność z dostarczonym kontekstem (faithfulness) i trafność."</p>
+<p><strong>O LLM-as-a-Judge:</strong> "Technika, w której potężny model ocenia subiektywne kryteria odpowiedzi — spójność, pomocność. Skaluje się lepiej niż ocena ludzka, ale ma ograniczenia i wbudowane uprzedzenia — np. faworyzowanie własnego stylu wypowiedzi. Dlatego ostateczna weryfikacja zawsze wymaga nadzoru ekspertów domenowych."</p>
+<p><strong>O A/B w AI:</strong> "Testowanie A/B w AI jest znacznie trudniejsze z uwagi na niedeterministyczne, losowe odpowiedzi modeli. Wymagane są bardzo duże próbki — często ponad 10 000 interakcji na wariant — aby odróżnić rzeczywistą poprawę jakości od losowego szumu. Ocena musi być wielowymiarowa — trafność, koszty, czas odpowiedzi."</p>
+<p><strong>O Artificial Latency Injection:</strong> "Większe i mądrzejsze modele działają wolniej. Aby rzetelnie ocenić jakość odpowiedzi bez zafałszowania wyników przez irytację użytkownika długim czasem ładowania, celowo spowalniam szybszy wariant kontrolny."</p>
+<p><strong>O wielorękim bandycie:</strong> "Do szybkich iteracji na promptach stosuje się algorytmy Multi-Armed Bandits, które automatycznie przekierowują ruch do lepiej działającej wersji, minimalizując straty biznesowe."</p>
+</div>
 <hr />
 <h2 id="scenariusz-102-jakosc-ryzyka-i-bezpieczenstwo-generatywnej-ai">Scenariusz 10.2 — jakość, ryzyka i bezpieczeństwo generatywnej AI<a class="headerlink" href="#scenariusz-102-jakosc-ryzyka-i-bezpieczenstwo-generatywnej-ai" title="Permanent link">&para;</a></h2>
 <blockquote>
@@ -952,6 +962,15 @@ Wbudowane uprzedzenia (np. <strong>faworyzowanie własnego stylu wypowiedzi</str
 <li>analiza <strong>osadzeń (embeddings)</strong></li>
 <li>testowanie za pomocą <strong>promptów kontrfaktycznych</strong> — zrozumienie procesu decyzyjnego modelu</li>
 </ul>
+<div class="admonition quote">
+<p class="admonition-title">Jak to powiedzieć egzaminatorowi</p>
+<p><strong>O halucynacjach — wykrywanie:</strong> "Stosuję zautomatyzowane techniki, np. SelfCheckGPT, do mierzenia częstotliwości zmyślonych twierdzeń poprzez badanie spójności wielu generowanych odpowiedzi."</p>
+<p><strong>O halucynacjach — ograniczanie:</strong> "Stosuję wbudowane techniki fact-checkingu weryfikujące dokładność i prawdomówność informacji, zwłaszcza z wielu źródeł. Pomaga też ugruntowanie modelu na zaufanych danych bazowych, np. poprzez Retrieval-Augmented Generation, czyli RAG."</p>
+<p><strong>O uprzedzeniach — wykrywanie:</strong> "Stosuję odpowiednie benchmarki — Bias Benchmark Questions, Winogender Schemas — oraz oceny sprawiedliwości (fairness assessments), mierzące wydajność systemu w przekroju różnych grup demograficznych."</p>
+<p><strong>O uprzedzeniach — ograniczanie:</strong> "Przeglądam i ewaluuję źródła danych treningowych pod kątem ich reprezentatywności i balansu. Ważne jest też kontrolowanie proporcji danych syntetycznych do rzeczywistych, aby uniknąć homogenizacji i zjawiska zapaści modelu — model collapse."</p>
+<p><strong>O błędach rozumowania — wykrywanie:</strong> "Przeprowadzam zaawansowane, symulowane ataki — GAI red-teaming, adversarial role-playing oraz chaos testing — aby zidentyfikować ukryte i nietypowe tryby awarii."</p>
+<p><strong>O błędach rozumowania — ograniczanie:</strong> "Wdrażam nadzór ludzki (Human-in-the-Loop) oraz eksperckie weryfikacje. Pomaga również stosowanie technik objaśnialnego AI — XAI — takich jak analiza osadzeń (embeddings) czy testowanie za pomocą promptów kontrfaktycznych, by lepiej zrozumieć proces decyzyjny modelu."</p>
+</div>
 
 
 

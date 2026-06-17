@@ -937,6 +937,12 @@
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Poziom ryzyka = Prawdopodobieństwo ataku × Wpływ (skutek)
 </code></pre></div>
 <p>Na podstawie równania i stworzonej macierzy przypisujesz zagrożenia do kategorii: <strong>Low / Medium / High / Critical</strong>.</p>
+<div class="admonition quote">
+<p class="admonition-title">Jak to powiedzieć egzaminatorowi</p>
+<p><strong>O aktywach:</strong> "Wskazuję z systemu aktywa cyfrowe — np. dane osobowe klientów, fizyczne — np. serwery, a także niematerialne, jak wizerunek marki i zaufanie. Ich wycenę opieram na utraconych przyszłych przychodach, koszcie odtworzenia, wartości dla konkurencji oraz potencjalnych karach finansowych — np. za złamanie przepisów RODO."</p>
+<p><strong>O STRIDE:</strong> "Stosuję metodykę STRIDE. Szukam luk w sześciu kategoriach. Spoofing — podszywanie się pod innego użytkownika. Tampering — nieuprawniona modyfikacja danych, np. kwoty przelewu. Repudiation — zaprzeczalność, brak dowodów że użytkownik wykonał daną akcję. Information Disclosure — wyciek poufnych informacji. Denial of Service — odmowa usługi, np. przez atak DDoS. Elevation of Privilege — nieuprawnione podniesienie uprawnień do poziomu administratora."</p>
+<p><strong>O szacowaniu:</strong> "Ostateczny poziom ryzyka obliczam jako iloczyn prawdopodobieństwa ataku i jego wpływu. Na podstawie tego równania i stworzonej macierzy przypisuję zidentyfikowane zagrożenia do odpowiednich kategorii — Low, Medium, High lub Critical."</p>
+</div>
 <hr />
 <h2 id="scenariusz-92-podatnosci-i-testy-bezpieczenstwa">Scenariusz 9.2 — podatności i testy bezpieczeństwa<a class="headerlink" href="#scenariusz-92-podatnosci-i-testy-bezpieczenstwa" title="Permanent link">&para;</a></h2>
 <blockquote>
@@ -982,6 +988,14 @@
 <li><strong>Zapytania sparametryzowane</strong> po stronie serwera</li>
 <li>Ścisła <strong>walidacja i sanityzacja</strong> danych wejściowych</li>
 </ul>
+<div class="admonition quote">
+<p class="admonition-title">Jak to powiedzieć egzaminatorowi</p>
+<p><strong>O SQL Injection:</strong> "Testuję pola wejściowe formularzy, wstrzykując fragmenty zapytań SQL — np. z użyciem poleceń UNION SELECT — aby zweryfikować, czy system zwróci nieuprawnione dane ze struktury bazy."</p>
+<p><strong>O XSS:</strong> "Wprowadzam złośliwy kod JavaScript — np. tag script z funkcją alert — w pola wejściowe i sprawdzam, czy aplikacja wykona go w przeglądarkach innych użytkowników, co mogłoby skutkować np. kradzieżą plików cookie."</p>
+<p><strong>O brute-force:</strong> "Planuję ataki siłowe przy użyciu słowników z popularnymi hasłami, badając zachowanie aplikacji — np. brak blokady po serii błędnych prób lub zróżnicowany czas odpowiedzi serwera ułatwiający zgadywanie loginów."</p>
+<p><strong>O priorytetach:</strong> "Priorytety testów i napraw wyznaczam za pomocą macierzy ryzyka — prawdopodobieństwo razy wpływ na biznes. Podatności takie jak SQLi czy XSS niemal zawsze otrzymują priorytet Krytyczny lub Wysoki, ponieważ umożliwiają masowy wyciek danych lub przejęcie kontroli."</p>
+<p><strong>O strukturze raportu:</strong> "W opisie wskazuję brak walidacji i bezpośrednie przekazywanie danych wpisanych przez użytkownika do bazy w module logowania, podaję dokładne kroki do reprodukcji i miejsce w aplikacji. W sekcji wpływu mówię o całkowitej kompromitacji zasobów cyfrowych — atakujący może zrzucić całą strukturę bazy danych i wyciągnąć poufne dane klientów. W rekomendacji proponuję zastosowanie zapytań sparametryzowanych po stronie serwera oraz ścisłą walidację i sanityzację danych wejściowych."</p>
+</div>
 <hr />
 <h2 id="4-pena-lista-owasp-top-10">4. Pełna lista OWASP Top 10<a class="headerlink" href="#4-pena-lista-owasp-top-10" title="Permanent link">&para;</a></h2>
 <table>
